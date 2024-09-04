@@ -1,0 +1,45 @@
+.banner-swiper {
+    width: 100%;
+    height: 90vh; /* Adjust height as needed */
+  }
+  
+  .banner-slide {
+    position: relative;
+    height: 100%;
+  }
+  
+  .banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .banner-text {
+    color: #fff;
+    text-align: center;
+  }
+  
+  .banner-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .banner-description {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  
