@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
+
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Slider from "react-slick";
-import './GetallfilmsforGuest.css';
 
 function GetallfilmsforGuest() {
   const navigate = useNavigate();
+
+  const handleFilmClick = (id) => {
+    localStorage.setItem("filmid", id); // Save film ID to localStorage
+    navigate('/ViewfimlbyidforGuest'); // Navigate to Viewfilmby_id page
+  };
+
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,6 +18,7 @@ function GetallfilmsforGuest() {
   useEffect(() => {
     const fetchFilms = async () => {
       try {
+
         const response = await axios.get("http://localhost:5001/api/films/Guest/all");
         if (response.data && Array.isArray(response.data.films)) {
           setFilms(response.data.films);
@@ -36,54 +42,74 @@ function GetallfilmsforGuest() {
     fetchFilms();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3, // Show 3 slides at once
-    slidesToScroll: 1,
-    centerMode: true, // Center the active slides
-    centerPadding: '10px', // Add space around the slides
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1, // Show 1 slide at a time on small screens
-          slidesToScroll: 1,
-          centerPadding: '10px', // Adjust for mobile
-        },
-      },
-    ],
-  };
-
-  const handleFilmClick = (id) => {
-    localStorage.setItem("filmid", id);
-    navigate('/ViewfilmbyidforGuest');
-  };
+  if (loading) return <div style={styles.loading}>Loading...</div>;
+  if (error) return <div style={styles.error}>{error}</div>;
 
   return (
-    <div className="films-container">
-      <h2 className="films-title">All Films</h2>
-      <Slider {...settings}>
-        {films.map((film) => (
-          <div className="film" key={film._id} onClick={() => handleFilmClick(film._id)}>
-            <h3 className="film-title">{film.title}</h3>
-            <p className="film-genre">{film.genre}</p>
-            {film.image && (
-              <img
-                className="film-poster"
-                src={`http://localhost:5001/${film.image}`}
-                alt={film.title}
-              />
-            )}
-          </div>
-        ))}
-      </Slider>
+    <div>
+      <h1>All Films</h1>
+
+      <div style={styles.container}>
+        {films.map((film) => {
+          return (
+            <div
+              key={film._id}
+              style={styles.filmCard}
+              onClick={() => handleFilmClick(film._id)} // Set film ID and navigate on click
+            >
+              <h2>{film.title}</h2>
+              {/* <p>{film.description}</p> */}
+              <p>{film.genre}</p>
+              {film.image && (
+                <img
+                  src={`http://localhost:5001/${film.image}`}
+                  alt={film.title}
+                  style={styles.image}
+                />
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
-  ); 
+  );
 }
+
+const styles = {
+  container: {
+    padding: "20px",
+    backgroundColor: "#f4f4f4",
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "20px",
+  },
+  loading: {
+    textAlign: "center",
+    fontSize: "20px",
+    color: "#007bff",
+  },
+  error: {
+    textAlign: "center",
+    fontSize: "18px",
+    color: "red",
+  },
+  filmCard: {
+    width: "300px",
+    padding: "15px",
+    borderRadius: "12px",
+    backgroundColor: "#fff",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    overflow: "hidden",
+    cursor: "pointer",
+  },
+  image: {
+    width: "100%",
+    height: "180px",
+    objectFit: "cover",
+    borderRadius: "8px",
+    marginBottom: "10px",
+  },
+};
 
 export default GetallfilmsforGuest;

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { useAuth } from '../../AuthContext';
-import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocation to get the current path
 import './NavBar.css';
+
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom'; // Import useLocation to get the current path
+
+import { useAuth } from '../../AuthContext';
 
 function NavBar() {
   const { role, logout } = useAuth();
@@ -33,17 +35,21 @@ function NavBar() {
         <img src='Logo/logo.png' alt='logo' />
       </a>
       <div className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-        <button className={`nav-link nav-item ${isActive('/')}`} onClick={() => handleNavLinkClick('/')}>Home</button>
-        <button className={`nav-link nav-item ${isActive('/About')}`} onClick={() => handleNavLinkClick('/About')}>About</button>
-        <button className={`nav-link nav-item ${isActive('/Contact')}`} onClick={() => handleNavLinkClick('/Contact')}>Contact us</button>
-        {role === null && (
-          <>
+ {role === null && (
+          <>        <button className={`nav-link nav-item ${isActive('/')}`} onClick={() => handleNavLinkClick('/')}>Home</button>
+          <button className={`nav-link nav-item ${isActive('/About')}`} onClick={() => handleNavLinkClick('/About')}>About</button>
+          <button className={`nav-link nav-item ${isActive('/Contact')}`} onClick={() => handleNavLinkClick('/Contact')}>Contact us</button>
+         
             <button className={`nav-link nav-item ${isActive('/Userregistration')}`} onClick={() => handleNavLinkClick('/Userregistration')}>Register</button>
             <button className={`nav-link nav-item ${isActive('/Userlogin')}`} onClick={() => handleNavLinkClick('/Userlogin')}>Login</button>
           </>
         )}
         {role === 'user' && (
           <>
+                  <button className={`nav-link nav-item ${isActive('/Userhome')}`} onClick={() => handleNavLinkClick('/Userhome')}>Home</button>
+        <button className={`nav-link nav-item ${isActive('/About')}`} onClick={() => handleNavLinkClick('/About')}>About</button>
+        <button className={`nav-link nav-item ${isActive('/Contact')}`} onClick={() => handleNavLinkClick('/Contact')}>Contact us</button>
+       
             <button className={`nav-link nav-item ${isActive('/Account')}`} onClick={() => handleNavLinkClick('/Account')}>Profile</button>
             <button className='nav-link nav-item' onClick={handleUserLogoutClick}>Logout</button>
           </>
