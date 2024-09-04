@@ -10,7 +10,7 @@
   
   .content-overlay {
     position: relative;
-    background: rgba(0, 0, 0, 0.75); /* Dark overlay */
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
     padding: 4rem;
     border-radius: 1rem;
   }
@@ -136,7 +136,7 @@
   }
   
   .form-result {
-    font-family:'Roboto', sans-serif;
+    
     display: block;
     margin-top: 1rem;
     color: #ffffff;

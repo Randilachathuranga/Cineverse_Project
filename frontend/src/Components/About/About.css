@@ -1,9 +1,26 @@
-/* About.css */
-
 .about-container {
   padding: 20px;
-  background-color: #F8F9FC; /* Light background for the section */
+  background: url('../About/wallpaperflare.com_wallpaper.jpg') no-repeat center center/cover; /* Add your image path here */
+  position: relative;
+  color: #fff; /* Change text color to white for better visibility */
   font-family: 'Roboto', sans-serif;
+  overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.about-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Adjust the 0.6 value to make the background darker or lighter */
+  z-index: 1;
+}
+
+.about-container * {
+  position: relative;
+  z-index: 2; /* Make sure content appears above the dark overlay */
 }
 
 .header {
@@ -13,7 +30,7 @@
 
 .header-h1 {
   font-size: 36px;
-  color: #11134F; /* Dark color for the header */
+  color: #7c92fd; /* Change color to white */
   margin: 0;
 }
 
@@ -23,14 +40,14 @@
 
 .sub-title {
   font-size: 28px;
-  color: #11134F; /* Dark color for section titles */
+  color: #eccf10; /* Change color to white */
   margin-bottom: 20px;
   text-align: center;
 }
 
 .sub-intro {
   font-size: 18px;
-  color: #333333; /* Darker color for text */
+  color: #ddd; /* Lighter text color */
   line-height: 1.6;
   text-align: center;
   margin: 10px 0;
@@ -40,21 +57,22 @@
   list-style-type: none;
   padding: 0;
   margin: 20px 0;
+  text-align: center;
 }
 
 .sub-ul li {
   font-size: 18px;
-  color: #333333; /* Darker color for text */
+  color: #ddd; /* Lighter text color */
   margin-bottom: 10px;
   line-height: 1.6;
 }
 
 .sub-ul li b {
-  color: #11134F; /* Emphasize the bold text */
+  color: #2a17f3; /* Emphasize the bold text in white */
 }
 
 .about-img {
-  max-width: 70%; /* Limit max-width to 80% of the container */
+  max-width: 70%;
   height: auto; 
   display: block;
   margin: 0 auto;
@@ -63,38 +81,38 @@
 /* Responsive Styles */
 @media (max-width: 768px) {
   .header-h1 {
-    font-size: 28px; /* Adjust font size for smaller screens */
+    font-size: 28px;
   }
 
   .sub-title {
-    font-size: 24px; /* Adjust font size for section titles */
+    font-size: 24px;
   }
 
   .sub-intro,
   .sub-ul li {
-    font-size: 14px; /* Adjust font size for text */
+    font-size: 14px;
   }
 
   .about-img {
-    max-width: 50%; /* Further reduce max-width for smaller screens */
+    max-width: 50%;
   }
 }
 
 @media (max-width: 480px) {
   .header-h1 {
-    font-size: 24px; /* Further adjust font size */
+    font-size: 24px;
   }
 
   .sub-title {
-    font-size: 20px; /* Further adjust font size for section titles */
+    font-size: 20px;
   }
 
   .sub-intro,
   .sub-ul li {
-    font-size: 12px; /* Further adjust font size for text */
+    font-size: 12px;
   }
 
   .about-img {
-    max-width: 40%; 
+    max-width: 40%;
   }
 }
