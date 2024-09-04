@@ -21,19 +21,25 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 18px;
-  color: #fffefe;
+  color: #FFFFFF; /* Change text color to white */
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 100;
+  position: relative; /* Needed for underline */
 }
 
 .nav-item:hover {
-  color: #D32F2F;
+  color: #FFD700; /* Hover color yellow */
 }
 
-.nav-item.active {
-  color: #FFD700; /* Yellow color for the active page */
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Adjust this for desired distance */
+  width: 100%;
+  height: 2px;
+  background-color: #FFD700; /* Yellow underline for the active page */
 }
 
 .mobile-menu-icon {
@@ -45,7 +51,7 @@
 .hamburger {
   width: 25px;
   height: 3px;
-  background-color: #212121;
+  background-color: #FFFFFF; /* Change hamburger color to white */
   margin: 4px 0;
   z-index: 100;
 }
@@ -78,4 +84,47 @@
   .mobile-menu-icon {
     display: flex;
   }
+}
+
+/* Profile Dropdown Styles */
+.profile-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #FFFFFF; /* White color for the profile icon */
+}
+
+.profile-icon-button:hover {
+  color: #FFD700; /* Hover color yellow */
+}
+
+.profile-dropdown {
+  display: block;
+  position: absolute;
+  top: 50px; /* Adjust to position the dropdown properly */
+  right: 0; /* Align dropdown to the right */
+  background-color: #FFFFFF;
+  border: 1px solid #ccc;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 200px; /* Set width for consistency */
+  text-align: left;
+}
+
+.profile-dropdown .nav-link {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: #212121;
+  text-decoration: none;
+}
+
+.profile-dropdown .nav-link:hover {
+  background-color: #f1f1f1;
+  color: #FFD700; /* Hover color yellow */
 }

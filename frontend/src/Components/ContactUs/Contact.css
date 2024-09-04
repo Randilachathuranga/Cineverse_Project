@@ -1,151 +1,152 @@
+
 .contact-container {
-    position: relative;
-    min-height: 10vh;
-    background: url('../ContactUs/wallpaperflare.com_wallpaper.jpg') center center/cover no-repeat; /* Adjust the path to your background image */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
+  position: relative;
+  min-height: 10vh;
+  background: url('../ContactUs/wallpaperflare.com_wallpaper.jpg') center center/cover no-repeat; /* Adjust the path to your background image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.content-overlay {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  padding: 4rem;
+  border-radius: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.contact-title {
+  font-family:'Roboto', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1e3a8a; /* Tailwind CSS color blue-800 */
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.contact-subtitle {
+  font-family:'Roboto', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffd700; /* Custom star color */
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-content {
+  font-family:'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: #ffffff;
+}
+
+.contact-info, .contact-form {
+  font-family:'Roboto', sans-serif;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-info {
+  margin-right: 2rem;
+}
+
+.info-title {
+  font-family:'Roboto', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.info-text {
+  margin-bottom: 2rem;
+  color: #d1d5db; /* Tailwind CSS color gray-300 */
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.info-icon {
+  color: #2563eb; /* Tailwind CSS color blue-600 */
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.contact-form {
+  background-color: rgba(31, 41, 55, 0.7); /* Tailwind CSS color gray-800 with opacity */
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #d1d5db; /* Tailwind CSS color gray-300 */
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  border: none;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  box-shadow: 0 0 0 2px #2563eb; /* Tailwind CSS color blue-600 */
+}
+
+.submit-button {
+  font-family:'Roboto', sans-serif;
+  display: flex;
+  align-items:normal;
+  justify-content: center;
+  width: 100%;
+  background-color: #2563eb; /* Tailwind CSS color blue-600 */
+  color: #ffffff;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #1e40af; /* Tailwind CSS color blue-700 */
+}
+
+.arrow {
+  margin-left: 0.5rem;
+}
+
+.form-result {
   
-  .content-overlay {
-    position: relative;
-    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
-    padding: 4rem;
-    border-radius: 1rem;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  
-  .contact-title {
-    font-family:'Roboto', sans-serif;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #1e3a8a; /* Tailwind CSS color blue-800 */
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .contact-subtitle {
-    font-family:'Roboto', sans-serif;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #ffd700; /* Custom star color */
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
+  display: block;
+  margin-top: 1rem;
+  color: #ffffff;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
   .contact-content {
-    font-family:'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    color: #ffffff;
+    flex-direction: row;
   }
-  
-  .contact-info, .contact-form {
-    font-family:'Roboto', sans-serif;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .contact-info {
-    margin-right: 2rem;
-  }
-  
-  .info-title {
-    font-family:'Roboto', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-  
-  .info-text {
-    margin-bottom: 2rem;
-    color: #d1d5db; /* Tailwind CSS color gray-300 */
-  }
-  
-  .info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  .info-icon {
-    color: #2563eb; /* Tailwind CSS color blue-600 */
-    font-size: 1.5rem;
-    margin-right: 1rem;
-  }
-  
-  .contact-form {
-    background-color: rgba(31, 41, 55, 0.7); /* Tailwind CSS color gray-800 with opacity */
-    padding: 2rem;
-    border-radius: 0.5rem;
-  }
-  
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #d1d5db; /* Tailwind CSS color gray-300 */
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border-radius: 0.25rem;
-    border: none;
-    outline: none;
-    transition: box-shadow 0.2s;
-  }
-  
-  .form-group input:focus,
-  .form-group textarea:focus {
-    box-shadow: 0 0 0 2px #2563eb; /* Tailwind CSS color blue-600 */
-  }
-  
-  .submit-button {
-    font-family:'Roboto', sans-serif;
-    display: flex;
-    align-items:normal;
-    justify-content: center;
-    width: 100%;
-    background-color: #2563eb; /* Tailwind CSS color blue-600 */
-    color: #ffffff;
-    padding: 0.75rem;
-    border-radius: 0.25rem;
-    transition: background-color 0.2s;
-  }
-  
-  .submit-button:hover {
-    background-color: #1e40af; /* Tailwind CSS color blue-700 */
-  }
-  
-  .arrow {
-    margin-left: 0.5rem;
-  }
-  
-  .form-result {
-    
-    display: block;
-    margin-top: 1rem;
-    color: #ffffff;
-  }
-  
-  /* Media Queries */
-  @media (min-width: 768px) {
-    .contact-content {
-      flex-direction: row;
-    }
-  }
-  
+}
+

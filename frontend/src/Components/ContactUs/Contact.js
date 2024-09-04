@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 import './Contact.css';
+
+import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
+import React, { useState } from 'react';
 
 function Contact() {
   const [result, setResult] = useState('');

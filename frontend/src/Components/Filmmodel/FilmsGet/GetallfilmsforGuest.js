@@ -1,5 +1,8 @@
+import './GetallfilmsforGuest.css'; // Import the CSS file
+
 import React, { useEffect, useState } from "react";
 
+import Slider from "react-slick"; // Import the Slider component from react-slick
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +21,6 @@ function GetallfilmsforGuest() {
   useEffect(() => {
     const fetchFilms = async () => {
       try {
-
         const response = await axios.get("http://localhost:5001/api/films/Guest/all");
         if (response.data && Array.isArray(response.data.films)) {
           setFilms(response.data.films);
@@ -42,74 +44,65 @@ function GetallfilmsforGuest() {
     fetchFilms();
   }, []);
 
-  if (loading) return <div style={styles.loading}>Loading...</div>;
-  if (error) return <div style={styles.error}>{error}</div>;
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">{error}</div>;
+
+  // Settings for the slick slider
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4, // Number of films to show at a time
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
   return (
-    <div>
-      <h1>All Films</h1>
+    <div className="films-container">
+      <h1 className="films-title">All Films</h1>
 
-      <div style={styles.container}>
-        {films.map((film) => {
-          return (
-            <div
-              key={film._id}
-              style={styles.filmCard}
-              onClick={() => handleFilmClick(film._id)} // Set film ID and navigate on click
-            >
-              <h2>{film.title}</h2>
-              {/* <p>{film.description}</p> */}
-              <p>{film.genre}</p>
-              {film.image && (
-                <img
-                  src={`http://localhost:5001/${film.image}`}
-                  alt={film.title}
-                  style={styles.image}
-                />
-              )}
-            </div>
-          );
-        })}
-      </div>
+      <Slider {...settings}>
+        {films.map((film) => (
+          <div
+            key={film._id}
+            className="film"
+            onClick={() => handleFilmClick(film._id)} // Set film ID and navigate on click
+          >
+            <h2 className="film-title">{film.title}</h2>
+            <p className="film-genre">{film.genre}</p>
+            {film.image && (
+              <img
+                src={`http://localhost:5001/${film.image}`}
+                alt={film.title}
+                className="film-poster"
+              />
+            )}
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    padding: "20px",
-    backgroundColor: "#f4f4f4",
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "20px",
-  },
-  loading: {
-    textAlign: "center",
-    fontSize: "20px",
-    color: "#007bff",
-  },
-  error: {
-    textAlign: "center",
-    fontSize: "18px",
-    color: "red",
-  },
-  filmCard: {
-    width: "300px",
-    padding: "15px",
-    borderRadius: "12px",
-    backgroundColor: "#fff",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-    overflow: "hidden",
-    cursor: "pointer",
-  },
-  image: {
-    width: "100%",
-    height: "180px",
-    objectFit: "cover",
-    borderRadius: "8px",
-    marginBottom: "10px",
-  },
-};
 
 export default GetallfilmsforGuest;
