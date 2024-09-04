@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import About from './Components/About/About';
-import Account from './Components/Usermodel/UserAccount/Account';
 import AdminAccount from './Components/Adminmodel/AdminAccount/AdminAccount';
 import AdminHome from './Components/Adminmodel/AdminHome/AdminHome';
 import Adminlogin from './Components/Adminmodel/AdminLogin/Adminlogin';
@@ -10,6 +9,7 @@ import Contact from './Components/ContactUs/Contact';
 import CreateBooking from './Components/Bookingmodel/BookingCreate/CreateBooking';
 import Createfilm from './Components/Filmmodel/FilmCreate/Createfilm';
 import Createschedule from './Components/Schedulemodel/ScheduleCreate/Createschedule';
+import Footer from './Components/Footer/Footer';
 import GetAllBooking from './Components/Bookingmodel/BookingGetAll/GetAllBooking';
 import GetAllBookingsbyUser from './Components/Bookingmodel/BookingGetAllByUser/GetAllBookingsbyUser';
 import Getallfilms from './Components/Filmmodel/FilmsGet/Getallfilms';
@@ -31,7 +31,6 @@ import ViewShedulesupdatedelete from './Components/Schedulemodel/ScheduleView/Vi
 import Viewfilmbyid from './Components/Filmmodel/FilmView/ViewfilmbyId';
 import ViewfimlbyidforGuest from './Components/Filmmodel/FilmView/ViewfimlbyidforGuest';
 import Viewprofile from './Components/Usermodel/UserProfileView/Viewprofile';
-import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -79,7 +78,6 @@ function Main() {
         <Route path="/Contact" element={<Contact />} />
 
         {/* User role */}
-        <Route path="/Account" element={<Account />} />
         <Route path="/Userhome" element={<UserHome />} />
         <Route path="/Userregistration" element={<Userregistration />} />
         <Route path="/Userlogin" element={<Userlogin />} />

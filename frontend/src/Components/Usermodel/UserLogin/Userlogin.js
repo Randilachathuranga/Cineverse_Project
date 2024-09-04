@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-
 import axios from "axios";
 import { useAuth } from '../../../AuthContext'; // Import useAuth
 import { useNavigate } from "react-router-dom";
+import './Userlogin.css'; // Import the CSS file
 
 function Userlogin() {
   const { login } = useAuth(); // Get login function from context
@@ -52,72 +52,38 @@ function Userlogin() {
   };
 
   return (
-    <div style={styles.container}>
-      <h2>Login</h2>
-      {error && <div style={styles.error}>{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div style={styles.inputGroup}>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={credentials.username}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </div>
-        <div style={styles.inputGroup}>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={credentials.password}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </div>
-        <button type="submit" style={styles.button}>Login</button>
-      </form>
+    <div className="user-login-container">
+      <div className="user-login-content">
+        <h2 className="user-login-title">Login</h2>
+        {error && <div className="user-login-error">{error}</div>}
+        <form className="user-login-form" onSubmit={handleSubmit}>
+          <div className="user-login-form-group">
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={credentials.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="user-login-form-group">
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={credentials.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button type="submit" className="user-login-submit-button">Login</button>
+        </form>
+      </div>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    width: "300px",
-    margin: "0 auto",
-    padding: "20px",
-    border: "1px solid #ddd",
-    borderRadius: "4px",
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-    backgroundColor: "#fff",
-  },
-  inputGroup: {
-    marginBottom: "15px",
-  },
-  input: {
-    width: "100%",
-    padding: "8px",
-    borderRadius: "4px",
-    border: "1px solid #ddd",
-  },
-  button: {
-    padding: "10px",
-    border: "none",
-    borderRadius: "4px",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    cursor: "pointer",
-    fontSize: "16px",
-  },
-  error: {
-    color: "red",
-    marginBottom: "15px",
-  },
-};
 
 export default Userlogin;

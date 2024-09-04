@@ -1,103 +1,67 @@
 /* Getallfilms.css */
 
+/* Import slick-carousel CSS */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css');
+
 .films-container {
-  padding: 20px;
-  background-color: #f8f9fc;
+  padding: 30px;
 }
 
 .films-title {
   font-size: 24px;
   font-family: 'Roboto', sans-serif;
-  text-align: center;
   margin-bottom: 20px;
-}
-
-.carousel {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: 1200px; /* Adjust based on design */
-  margin: 0 auto;
-}
-
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slides {
-  display: flex;
-  width: 100%;
+  text-align: center;
 }
 
 .film {
-  flex: 0 0 33.333%; /* Adjust width for 3 items per row */
-  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
   padding: 10px;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  margin-right: 10px;
+  height: 350px;
+}
+
+.film:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .film-title {
   font-size: 18px;
-  color: #11134F;
-  margin: 10px 0;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 5px; /* Add space below the title */
 }
 
 .film-genre {
   font-size: 14px;
-  color: #666;
+  color: #757575;
 }
 
 .film-poster {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
+  width: 100%;
+  height: 200px; 
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  border-radius: 8px;
+  margin-bottom: 10px; /* Add space below the poster */
 }
 
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  width: 50px;
-  height: 50px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: 24px;
-  transform: translateY(-50%);
-  z-index: 1000;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-  .film {
-    flex: 0 0 50%; /* Adjust width for 2 items per row */
-  }
-}
-
+/* Mobile Styles */
 @media (max-width: 768px) {
-  .film {
-    flex: 0 0 100%; /* Full width for each item */
+  .film-title {
+    font-size: 16px;
   }
 
-  .carousel-control {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
+  .film-genre {
+    font-size: 12px;
   }
 }

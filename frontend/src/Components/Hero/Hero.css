@@ -3,7 +3,6 @@ body{
 }
 
 .hero-container {
-  background: url('/public/img/hero.jpg') no-repeat center center/cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -80,3 +79,40 @@ body{
     padding: 10px 20px;
   }
 }
+
+.hero-container {
+  position: absolute; /* Position the text container absolutely */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust the positioning to truly center it */
+  text-align: center; /* Center the text inside the container */
+  color: white; /* White text color for contrast */
+  z-index: 10; /* Ensure it is on top of the banner */
+}
+
+.hero-title {
+  font-size: 4rem; /* Adjust as needed */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero-intro {
+  font-size: 1.5rem; /* Adjust as needed */
+  margin-bottom: 2rem;
+}
+
+.cta {
+  background-color: #007bff; /* Blue button */
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+

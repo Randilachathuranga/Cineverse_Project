@@ -1,0 +1,89 @@
+.user-registration-container {
+    position: relative;
+    min-height: 20vh;
+    background: url('./wallpaperflare.com_wallpaper.jpg') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .user-registration-content {
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .user-registration-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1e3a8a;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .user-registration-error {
+    font-family: 'Roboto', sans-serif;
+    color: red;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .user-registration-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-registration-form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .user-registration-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #d1d5db;
+  }
+  
+  .user-registration-form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: none;
+    transition: box-shadow 0.2s;
+  }
+  
+  .user-registration-form-group input:focus {
+    box-shadow: 0 0 0 2px #2563eb;
+  }
+  
+  .user-registration-submit-button {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .user-registration-submit-button:hover {
+    background-color: #1e40af;
+  }
+  
+  /* Additional styles for form fields */
+  .user-registration-form-group input[type="text"],
+  .user-registration-form-group input[type="email"],
+  .user-registration-form-group input[type="password"] {
+    margin-bottom: 0.75rem;
+  }
+  

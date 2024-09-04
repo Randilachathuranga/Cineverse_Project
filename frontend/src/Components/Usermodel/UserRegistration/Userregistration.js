@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './Userregistration.css';  // Import the CSS file
 
 function Userregistration() {
   const [formData, setFormData] = useState({
@@ -37,7 +37,7 @@ function Userregistration() {
           phone: "",
           role: "user",
         });
-        navigate("/Userlogin"); // Redirect to UserHome
+        navigate("/Userlogin"); // Redirect to Userlogin
       } else {
         setError("Registration failed: " + response.data.message);
       }
@@ -53,63 +53,74 @@ function Userregistration() {
       } else {
         setError("Error: " + error.message);
       }
-    } finally {
     }
   };
 
   return (
-    <div>
-      {error && <div className="alert alert-danger">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          placeholder="Username"
-          required
-        />
-        <br></br>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Password"
-          required
-        />
-        <br></br>
-
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Email"
-          required
-        />
-                <br></br>
-
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Full Name"
-          required
-        />
-                <br></br>
-
-        <input
-          type="text"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          placeholder="Phone"
-        />
-                <br></br>
-        <button type="submit">Register</button>
-      </form>
+    <div className="user-registration-container">
+      <div className="user-registration-content">
+        <h2 className="user-registration-title">Register</h2>
+        {error && <div className="user-registration-error">{error}</div>}
+        <form onSubmit={handleSubmit} className="user-registration-form">
+          <div className="user-registration-form-group">
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              placeholder="Username"
+              required
+              className="user-registration-input"
+            />
+          </div>
+          <div className="user-registration-form-group">
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Password"
+              required
+              className="user-registration-input"
+            />
+          </div>
+          <div className="user-registration-form-group">
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+              required
+              className="user-registration-input"
+            />
+          </div>
+          <div className="user-registration-form-group">
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Full Name"
+              required
+              className="user-registration-input"
+            />
+          </div>
+          <div className="user-registration-form-group">
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Phone"
+              className="user-registration-input"
+            />
+          </div>
+          <button type="submit" className="user-registration-submit-button">
+            Register
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

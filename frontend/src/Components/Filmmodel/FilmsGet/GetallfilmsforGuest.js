@@ -1,11 +1,19 @@
+import './GetallfilmsforGuest.css'; // Import the CSS file
+
 import React, { useEffect, useState } from "react";
+
+import Slider from "react-slick"; // Import the Slider component from react-slick
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Slider from "react-slick";
-import './GetallfilmsforGuest.css';
 
 function GetallfilmsforGuest() {
   const navigate = useNavigate();
+
+  const handleFilmClick = (id) => {
+    localStorage.setItem("filmid", id); // Save film ID to localStorage
+    navigate('/ViewfimlbyidforGuest'); // Navigate to Viewfilmby_id page
+  };
+
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -36,54 +44,65 @@ function GetallfilmsforGuest() {
     fetchFilms();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">{error}</div>;
 
+  // Settings for the slick slider
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Show 3 slides at once
+    slidesToShow: 4, // Number of films to show at a time
     slidesToScroll: 1,
-    centerMode: true, // Center the active slides
-    centerPadding: '10px', // Add space around the slides
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1, // Show 1 slide at a time on small screens
-          slidesToScroll: 1,
-          centerPadding: '10px', // Adjust for mobile
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
         },
       },
     ],
   };
 
-  const handleFilmClick = (id) => {
-    localStorage.setItem("filmid", id);
-    navigate('/ViewfilmbyidforGuest');
-  };
-
   return (
     <div className="films-container">
-      <h2 className="films-title">All Films</h2>
+      <h1 className="films-title">All Films</h1>
+
       <Slider {...settings}>
         {films.map((film) => (
-          <div className="film" key={film._id} onClick={() => handleFilmClick(film._id)}>
-            <h3 className="film-title">{film.title}</h3>
+          <div
+            key={film._id}
+            className="film"
+            onClick={() => handleFilmClick(film._id)} // Set film ID and navigate on click
+          >
+            <h2 className="film-title">{film.title}</h2>
             <p className="film-genre">{film.genre}</p>
             {film.image && (
               <img
-                className="film-poster"
                 src={`http://localhost:5001/${film.image}`}
                 alt={film.title}
+                className="film-poster"
               />
             )}
           </div>
         ))}
       </Slider>
     </div>
-  ); 
+  );
 }
 
 export default GetallfilmsforGuest;
