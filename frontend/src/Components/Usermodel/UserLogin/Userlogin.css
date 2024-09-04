@@ -1,0 +1,84 @@
+/* UserLogin.css */
+
+.user-login-container {
+    position: relative;
+    min-height: 20vh;
+    background: url('./wallpaperflare.com_wallpaper.jpg') center center/cover no-repeat; /* Use the same background image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .user-login-content {
+    position: relative;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .user-login-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1e3a8a; /* Tailwind CSS color blue-800 */
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .user-login-error {
+    font-family: 'Roboto', sans-serif;
+    color: red;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .user-login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-login-form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .user-login-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #d1d5db; /* Tailwind CSS color gray-300 */
+  }
+  
+  .user-login-form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: none;
+    transition: box-shadow 0.2s;
+  }
+  
+  .user-login-form-group input:focus {
+    box-shadow: 0 0 0 2px #2563eb; /* Tailwind CSS color blue-600 */
+  }
+  
+  .user-login-submit-button {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #2563eb; /* Tailwind CSS color blue-600 */
+    color: #ffffff;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .user-login-submit-button:hover {
+    background-color: #1e40af; /* Tailwind CSS color blue-700 */
+  }
+  
