@@ -1,0 +1,95 @@
+/* Features.css */
+
+.features-container {
+  padding: 20px;
+  background-color: #f8f9fc; /* Light background for the section */
+}
+
+.features-title {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 20px;
+  text-align: center; /* Center the section title */
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center items horizontally */
+  gap: 20px; /* Add gap between items */
+}
+
+.features-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center items horizontally */
+  gap: 20px; /* Add gap between items */
+}
+
+.feature-li {
+  flex: 1 1 calc(25% - 20px); /* Adjust width for 4 items per row */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center; /* Center items within each li */
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff; /* White background for each feature */
+  border: 1px solid #e0e0e0; /* Light border */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center; /* Center text inside feature */
+  height: 160px; /* Fixed height */
+  width: 200px; 
+}
+
+.feature:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.item {
+  width: 60px; /* Set consistent width for icons */
+  height: 60px; /* Set consistent height for icons */
+  margin-bottom: 10px; /* Space below icon */
+}
+
+.item-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333; /* Dark text color */
+  margin-top: 10px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .feature-li {
+    flex: 1 1 calc(50% - 20px); /* Adjust width for 2 items per row on small screens */
+  }
+
+  .feature {
+    height: 220px; /* Adjust height for smaller screens */
+    width: 180px; /* Adjust width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-li {
+    flex: 1 1 calc(100% - 20px); /* Full width for each item on extra small screens */
+    display: flex; /* Ensure flex container to center items */
+    justify-content: center; /* Center items horizontally */
+  }
+
+  .feature {
+    height: 200px; /* Adjust height for very small screens */
+    width: 160px; /* Adjust width for very small screens */
+  }
+}

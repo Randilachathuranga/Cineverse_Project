@@ -1,0 +1,103 @@
+/* Getallfilms.css */
+
+.films-container {
+  padding: 20px;
+  background-color: #f8f9fc;
+}
+
+.films-title {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px; /* Adjust based on design */
+  margin: 0 auto;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slides {
+  display: flex;
+  width: 100%;
+}
+
+.film {
+  flex: 0 0 33.333%; /* Adjust width for 3 items per row */
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.film-title {
+  font-size: 18px;
+  color: #11134F;
+  margin: 10px 0;
+}
+
+.film-genre {
+  font-size: 14px;
+  color: #666;
+}
+
+.film-poster {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .film {
+    flex: 0 0 50%; /* Adjust width for 2 items per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .film {
+    flex: 0 0 100%; /* Full width for each item */
+  }
+
+  .carousel-control {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}

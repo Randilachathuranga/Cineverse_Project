@@ -1,0 +1,68 @@
+/* GetallfilmsforGuest.css */
+
+/* Import slick-carousel CSS */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css');
+
+.films-container {
+  padding: 30px;
+
+}
+
+.films-title {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.film {
+  cursor: pointer;
+  text-align: center;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 350px;
+}
+
+.film:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.film-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 5px; /* Add space below the title */
+}
+
+.film-genre {
+  font-size: 14px;
+  color: #757575;
+}
+
+.film-poster {
+  width: 100%;
+  height: 200px; 
+  object-fit:cover; /* Ensure the image covers the area without distortion */
+  border-radius: 8px;
+  margin-bottom: 10px; /* Add space below the poster */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .film-title {
+    font-size: 16px;
+  }
+
+  .film-genre {
+    font-size: 12px;
+  }
+}

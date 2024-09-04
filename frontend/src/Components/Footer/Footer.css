@@ -1,0 +1,90 @@
+/* Footer.css */
+
+.footer {
+  background-color: #11134F; /* Dark background color for footer */
+  color: #BDC8E8; /* Light text color */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-logo img {
+  max-width: 150px; /* Adjust logo size */
+}
+
+.footer-links,
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-links a,
+.footer-social a {
+  color: #BDC8E8; /* Light text color for links */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: #F8F9FC; /* Slightly lighter color on hover */
+}
+
+.footer-social {
+  gap: 20px;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #BDC8E8; /* Light text color */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links,
+  .footer-social {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a,
+  .footer-social a {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo img {
+    max-width: 120px; /* Adjust logo size for very small screens */
+  }
+
+  .footer-links a,
+  .footer-social a {
+    font-size: 12px; /* Further adjust font size for very small screens */
+  }
+
+  .footer-bottom p {
+    font-size: 12px; /* Adjust font size for footer bottom text */
+  }
+}

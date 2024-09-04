@@ -1,0 +1,100 @@
+/* About.css */
+
+.about-container {
+  padding: 20px;
+  background-color: #F8F9FC; /* Light background for the section */
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header-h1 {
+  font-size: 36px;
+  color: #11134F; /* Dark color for the header */
+  margin: 0;
+}
+
+.sub-section {
+  margin-bottom: 40px;
+}
+
+.sub-title {
+  font-size: 28px;
+  color: #11134F; /* Dark color for section titles */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sub-intro {
+  font-size: 18px;
+  color: #333333; /* Darker color for text */
+  line-height: 1.6;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.sub-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.sub-ul li {
+  font-size: 18px;
+  color: #333333; /* Darker color for text */
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.sub-ul li b {
+  color: #11134F; /* Emphasize the bold text */
+}
+
+.about-img {
+  max-width: 70%; /* Limit max-width to 80% of the container */
+  height: auto; 
+  display: block;
+  margin: 0 auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header-h1 {
+    font-size: 28px; /* Adjust font size for smaller screens */
+  }
+
+  .sub-title {
+    font-size: 24px; /* Adjust font size for section titles */
+  }
+
+  .sub-intro,
+  .sub-ul li {
+    font-size: 14px; /* Adjust font size for text */
+  }
+
+  .about-img {
+    max-width: 50%; /* Further reduce max-width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .header-h1 {
+    font-size: 24px; /* Further adjust font size */
+  }
+
+  .sub-title {
+    font-size: 20px; /* Further adjust font size for section titles */
+  }
+
+  .sub-intro,
+  .sub-ul li {
+    font-size: 12px; /* Further adjust font size for text */
+  }
+
+  .about-img {
+    max-width: 40%; 
+  }
+}

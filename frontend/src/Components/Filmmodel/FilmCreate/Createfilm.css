@@ -1,0 +1,112 @@
+/* Createfilm.css */
+
+.create-film-container {
+  padding: 20px;
+  background-color: #f8f9fc; /* Light background for contrast */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 800px; /* Max width for large screens */
+}
+
+.create-film-header {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333; /* Dark text color */
+}
+
+.create-film-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-film-div {
+  margin-bottom: 15px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555; /* Slightly lighter text for labels */
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+textarea.input {
+  resize: vertical;
+  height: 100px;
+}
+
+.submit-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #11134F; /* Button color */
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0d0a6c; /* Darker button color on hover */
+}
+
+.message {
+  color: #e74c3c; /* Red color for error messages */
+  margin-bottom: 15px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .create-film-container {
+    padding: 15px;
+    max-width: 100%; /* Full width on smaller screens */
+  }
+
+  .create-film-header {
+    font-size: 20px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .input {
+    font-size: 13px;
+  }
+
+  .submit-btn {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .create-film-container {
+    padding: 10px;
+  }
+
+  .create-film-header {
+    font-size: 18px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  .input {
+    font-size: 12px;
+  }
+
+  .submit-btn {
+    font-size: 12px;
+  }
+}

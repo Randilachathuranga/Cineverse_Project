@@ -1,0 +1,54 @@
+/* Container styling */
+.film-container {
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* Film image styling */
+.film-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Schedule list styling */
+.schedule-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.schedule-list li {
+  margin-bottom: 15px;
+}
+
+.schedule-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.schedule-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .film-container {
+    padding: 15px;
+  }
+
+  .schedule-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+}
