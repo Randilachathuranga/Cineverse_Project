@@ -6,6 +6,7 @@ import Createfilm from "../../Filmmodel/FilmCreate/Createfilm";
 import UpdateFilms from "../../Filmmodel/FilmUpdate/UpdateFilms";
 import Createschedule from "../../Schedulemodel/ScheduleCreate/Createschedule";
 import ViewShedulesupdatedelete from "../../Schedulemodel/ScheduleView/ViewShedulesupdatedelete";
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
 export default function AdminHome() {
   const [activeTab, setActiveTab] = useState('AdminProfile');
@@ -24,7 +25,7 @@ export default function AdminHome() {
   return (
     <div className="admin-dashboard">
       <button className="hamburger-menu" onClick={toggleMenu}>
-        &#9776;
+        <MenuRoundedIcon/>
       </button>
       <div className={`tabs-container ${menuOpen ? 'open' : ''}`}>
         <button 

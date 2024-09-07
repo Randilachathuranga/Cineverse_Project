@@ -1,5 +1,8 @@
 import React from 'react';
 import './Footer.css';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 function Footer() {
   return (
@@ -13,10 +16,10 @@ function Footer() {
           <a href="/Getfilms">Films</a>
           <a href="/contact">Contact</a>
         </div>
-        <div className="footer-social">
-          <a href="#facebook" className="social-link">Facebook</a>
-          <a href="#twitter" className="social-link">Twitter</a>
-          <a href="#instagram" className="social-link">Instagram</a>
+        <div className="socialMedia">
+            <FacebookIcon />
+            <InstagramIcon />
+            <YouTubeIcon />
         </div>
       </div>
       <div className="footer-bottom">

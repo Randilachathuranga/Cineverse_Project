@@ -10,6 +10,13 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.socialMedia svg {
+  color: white;
+  margin: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
 .footer-content {
   display: flex;
   flex-direction: column;
