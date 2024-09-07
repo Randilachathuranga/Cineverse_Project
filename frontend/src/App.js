@@ -31,6 +31,7 @@ import ViewShedulesupdatedelete from './Components/Schedulemodel/ScheduleView/Vi
 import Viewfilmbyid from './Components/Filmmodel/FilmView/ViewfilmbyId';
 import ViewfimlbyidforGuest from './Components/Filmmodel/FilmView/ViewfimlbyidforGuest';
 import Viewprofile from './Components/Usermodel/UserProfileView/Viewprofile';
+import PaymentCreation from './Components/Payments/PaymentCreate';
 
 function App() {
   return (
@@ -111,6 +112,11 @@ function Main() {
         <Route path="/GetAllBookingsbyUser" element={<GetAllBookingsbyUser />} />
         <Route path="/GetAllBooking" element={<GetAllBooking />} />
         <Route path="/BookingCancel" element={<BookingCancel />} />
+
+        {/* Payment model */}
+        <Route path="/Checkout" element={<PaymentCreation/>} />
+
+
       </Routes>
       {shouldRenderNavBar &&<Footer/>}
     </div>

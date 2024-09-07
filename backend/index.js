@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const path = require("path"); // Import path module
+const path = require("path");
 
 const app = express();
 app.use(express.json());
@@ -26,6 +26,7 @@ const bookings = require("./routes/bookings");
 const films = require("./routes/films");
 const schedules = require("./routes/schedules");
 const seats = require("./routes/seats");
+const payments = require("./routes/payments");
 
 
 // Use routes
@@ -35,6 +36,7 @@ app.use("/api/bookings", bookings);
 app.use("/api/films", films);
 app.use("/api/schedules", schedules);
 app.use('/api/seats', seats);
+app.use('/api/payments', payments);
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // Serve static files
 

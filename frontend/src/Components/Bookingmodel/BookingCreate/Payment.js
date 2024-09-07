@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import React from "react";
 import axios from "axios";
-import "./Payment.css"; // Import the external CSS file
+import "./Payment.css";
 
 function Payment() {
   const location = useLocation();
@@ -12,7 +12,7 @@ function Payment() {
   const storedScheduleId = localStorage.getItem("scheduleId");
   const storedAuthToken = localStorage.getItem("authToken");
 
-  const ticketPrice = 1200; // Assuming each ticket costs $1200
+  const ticketPrice = 600;
   const totalPrice = selectedSeats.length * ticketPrice;
   const currentDate = new Date().toLocaleString(); // Get current date and time
 
@@ -58,8 +58,8 @@ function Payment() {
         }
       );
 
-      alert("Payment successful! Your seats have been booked.");
-      navigate("/Userhome");
+      // alert("Payment successful! Your seats have been booked.");
+      navigate("/Checkout");
     } catch (error) {
       console.error("Error during payment:", error.response || error.message);
 
@@ -72,6 +72,7 @@ function Payment() {
       alert(errorMessage);
     }
   };
+
 
   return (
     <div className="payment-container">
