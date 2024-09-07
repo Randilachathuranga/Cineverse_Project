@@ -27,6 +27,7 @@ const films = require("./routes/films");
 const schedules = require("./routes/schedules");
 const seats = require("./routes/seats");
 const payments = require("./routes/payments");
+const emails = require("./routes/emails");
 
 
 // Use routes
@@ -37,6 +38,7 @@ app.use("/api/films", films);
 app.use("/api/schedules", schedules);
 app.use('/api/seats', seats);
 app.use('/api/payments', payments);
+app.use("/api", emails);
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // Serve static files
 

@@ -11,10 +11,13 @@ function Payment() {
   const storedUserId = localStorage.getItem("userId");
   const storedScheduleId = localStorage.getItem("scheduleId");
   const storedAuthToken = localStorage.getItem("authToken");
+  const userEmail = localStorage.getItem("email");
+
+  console.log("Stored email:", userEmail);
 
   const ticketPrice = 600;
   const totalPrice = selectedSeats.length * ticketPrice;
-  const currentDate = new Date().toLocaleString(); // Get current date and time
+  const currentDate = new Date().toLocaleString(); 
 
   const handlePayment = async () => {
     try {
@@ -42,7 +45,7 @@ function Payment() {
       const storedSeatIds = localStorage.getItem("seatid_of_seatdoc");
 
       // Create a booking document
-      await axios.post(
+      const bookingResponse = await axios.post(
         "http://localhost:5001/api/bookings/add",
         {
           user_id: storedUserId,
@@ -58,7 +61,20 @@ function Payment() {
         }
       );
 
-      // alert("Payment successful! Your seats have been booked.");
+      // Send QR code to the user's email
+      await axios.post(
+        "http://localhost:5001/api/send-qrcode",
+        {
+          userEmail: userEmail,  
+          bookingData: bookingResponse.data,
+        },
+        {
+          headers: {
+            "x-api-key": storedAuthToken,
+          },
+        }
+      );
+
       navigate("/Checkout");
     } catch (error) {
       console.error("Error during payment:", error.response || error.message);
@@ -72,7 +88,6 @@ function Payment() {
       alert(errorMessage);
     }
   };
-
 
   return (
     <div className="payment-container">
