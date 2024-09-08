@@ -72,7 +72,7 @@ const stripe = Stripe("sk_test_51PwJDWJYBSF1viQyLoUJ2zxyfRqNEZGZl62hN1A7KJ0Krmmy
 
 // Backend Controller
 exports.createPaymentIntent = async (req, res) => {
-  const { amount, userId, bookingId } = req.body;
+  const { amount, userId } = req.body;
 
   try {
     // Create a Stripe Payment Intent
@@ -88,7 +88,6 @@ exports.createPaymentIntent = async (req, res) => {
       amount: amount,
       status: "pending", // Initial status: pending
       transaction_id: paymentIntent.id,
-      booking_id: bookingId,
     });
 
     await payment.save(); // Save the payment record to MongoDB

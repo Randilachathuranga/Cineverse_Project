@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function BookingCancel() {
   const bookingId = localStorage.getItem("bookingId");
@@ -7,6 +8,8 @@ function BookingCancel() {
   const bookingDate = new Date(localStorage.getItem("bookingdate"));
   const showtime = new Date(localStorage.getItem("showtime"));
   const storedAuthToken = localStorage.getItem("authToken"); // Ensure the auth token is present
+  const navigate = useNavigate();
+  
 
   console.log("bookingId:", bookingId);
   console.log("seatIds:", seatIds);
@@ -27,6 +30,7 @@ function BookingCancel() {
     if (currentDate > twoDaysBeforeShowtime) {
       console.error("You can't cancel the booking as it's less than two days before the showtime.");
       alert("You can't cancel the booking as it's less than two days before the showtime.");
+      navigate("/GetAllBookingsbyUser");
       return;
     }
 
@@ -55,6 +59,7 @@ function BookingCancel() {
       // window.location.href = '/some-route';
       
       alert("Your booking and seats have been successfully canceled.");
+      navigate("/GetAllBookingsbyUser");
     } catch (error) {
       console.error("Error canceling booking:", error.response ? error.response.data : error.message);
       alert("Error canceling booking: " + (error.response ? error.response.data : error.message));

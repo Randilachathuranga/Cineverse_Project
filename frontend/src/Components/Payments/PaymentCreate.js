@@ -1,14 +1,18 @@
-import React from 'react';
-import { useStripe, useElements, CardElement, Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
-import axios from 'axios';
 import './PaymentCreate.css';
 
-const stripePromise = loadStripe('pk_test_51PwJDWJYBSF1viQyx0GJZIcaq5R9ZXQ8271o9u4pnj1vZiFmjciqPsq6cUV17I7pEkkGZNoFjCdFKDmBXOzhAWz4003ECiIvFq'); 
+import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const PaymentForm = () => {
+import axios from 'axios';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe('pk_test_51PwJDWJYBSF1viQyx0GJZIcaq5R9ZXQ8271o9u4pnj1vZiFmjciqPsq6cUV17I7pEkkGZNoFjCdFKDmBXOzhAWz4003ECiIvFq');
+
+const PaymentForm = ({ selectedSeats, totalPrice, userEmail }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,39 +20,95 @@ const PaymentForm = () => {
     if (!stripe || !elements) return;
 
     const card = elements.getElement(CardElement);
-
-    const userId = localStorage.getItem('userId');  
-    const bookingId = localStorage.getItem('bookingId');
-
+    const storedUserId = localStorage.getItem('userId');
+    const storedScheduleId = localStorage.getItem('scheduleId');
+    const storedAuthToken = localStorage.getItem('authToken');
 
     try {
-      // Create a payment intent on the backend
+      // Proceed with payment
       const { data } = await axios.post('http://localhost:5001/api/payments/create-payment-intent', {
-        amount: 1200 * 100, // Amount in cents
+        amount: totalPrice * 100, // Convert to cents
+        userId: storedUserId,
       });
 
       // Confirm the card payment
       const { error, paymentIntent } = await stripe.confirmCardPayment(data.clientSecret, {
         payment_method: {
           card,
-          userId,         
-          bookingId 
         },
       });
 
       if (error) {
         console.error('Payment Error:', error);
         alert(`Payment failed: ${error.message}`);
-      } else if (paymentIntent.status === 'succeeded') {
-        alert('Payment successful!');
-        // Perform additional actions on success
-        await axios.post('http://localhost:5001/api/payments/update-status', {
-          paymentIntentId: paymentIntent.id,
-          status: 'succeeded',
-        });
+        return; // Exit if payment fails
+      } 
+
+      if (paymentIntent.status === 'succeeded') {
+        // Payment succeeded, proceed with creating seats and booking
+        try {
+          // Create seats document
+          const seatIds = selectedSeats.map(seat => parseInt(seat, 10));
+          const seatResponse = await axios.post(
+            "http://localhost:5001/api/seats/add",
+            {
+              user_id: storedUserId,
+              schedule_id: storedScheduleId,
+              seat_id: seatIds,
+            },
+            {
+              headers: {
+                "x-api-key": storedAuthToken,
+              },
+            }
+          );
+
+          if (seatResponse.data.user_id && seatResponse.data._id) {
+            localStorage.setItem("seatid_of_seatdoc", seatResponse.data._id);
+          }
+
+          const storedSeatIds = localStorage.getItem("seatid_of_seatdoc");
+
+          // Create a booking document
+          const bookingResponse = await axios.post(
+            "http://localhost:5001/api/bookings/add",
+            {
+              user_id: storedUserId,
+              seats: storedSeatIds,
+              schedule_id: storedScheduleId,
+              booking_date: new Date().toISOString(),
+              status: "booked",
+            },
+            {
+              headers: {
+                "x-api-key": storedAuthToken,
+              },
+            }
+          );
+
+          // Send QR code to the user's email
+          await axios.post(
+            "http://localhost:5001/api/send-qrcode",
+            {
+              userEmail: userEmail,
+              bookingData: bookingResponse.data,
+            },
+            {
+              headers: {
+                "x-api-key": storedAuthToken,
+              },
+            }
+          );
+
+          alert('Payment and booking successful!');
+          navigate('/Userhome');
+        } catch (error) {
+          console.error('Error during booking:', error);
+          alert(`Booking failed. ${error.message}`);
+        }
       }
     } catch (error) {
-      console.error('Payment error:', error);
+      console.error('Error during payment:', error);
       alert(`Payment failed. ${error.message}`);
     }
   };
@@ -62,11 +122,43 @@ const PaymentForm = () => {
 };
 
 function PaymentCreation() {
+  const location = useLocation();
+  const [selectedSeats, setSelectedSeats] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [currentDate, setCurrentDate] = useState('');
+  const userEmail = localStorage.getItem("email") || "user@example.com"; // Retrieve email from local storage
+
+  useEffect(() => {
+    if (location.state && location.state.selectedSeats) {
+      const { selectedSeats } = location.state;
+      const ticketPrice = 1200; // Adjust as needed
+      const totalPrice = selectedSeats.length * ticketPrice;
+      setSelectedSeats(selectedSeats);
+      setTotalPrice(totalPrice);
+      setCurrentDate(new Date().toLocaleString());
+    }
+  }, [location.state]);
+
   return (
     <div>
       <h1>Checkout Page</h1>
+      <p><strong>Booking Date:</strong> {currentDate}</p>
+      <p><strong>Total Price:</strong> ${totalPrice}</p>
+      <ul>
+        {selectedSeats.length > 0 ? (
+          selectedSeats.map((seat) => (
+            <li key={seat}>{seat}</li>
+          ))
+        ) : (
+          <li>No seats selected</li>
+        )}
+      </ul>
       <Elements stripe={stripePromise}>
-        <PaymentForm />
+        <PaymentForm 
+          selectedSeats={selectedSeats} 
+          totalPrice={totalPrice} 
+          userEmail={userEmail} 
+        />
       </Elements>
     </div>
   );
