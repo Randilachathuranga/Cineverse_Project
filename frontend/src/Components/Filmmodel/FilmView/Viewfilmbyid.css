@@ -1,16 +1,30 @@
-.film-container {
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 0 auto; /* Center the container */
+.film-v-container {
+  position: relative;
+  min-height: 20vh;
+  background: url('/public/img/wallpaperflare.com_wallpaper.jpg') center center/cover no-repeat;
+  background-color: rgba(3, 4, 32, 0.719);
+  background-blend-mode: multiply;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.film-content {
+    position: relative;
+    background: #030420; /* Dark overlay */
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 800px;
+    width: 100%;
 }
 
 .film-title {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0161FD;
   text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 .film-description,
@@ -20,6 +34,7 @@
 .film-rating {
   margin-top: 10px;
   font-size: 16px;
+  color: #ffffff;
   line-height: 1.5;
 }
 
@@ -40,6 +55,7 @@
   margin-top: 20px;
   font-size: 20px;
   font-weight: bold;
+  color: #0161FD;
   text-align: center;
 }
 
