@@ -18,6 +18,7 @@ import Home from './Components/Home/Home';
 import NavBar from './Components/Navbar/NavBar';
 import Payment from './Components/Bookingmodel/BookingCreate/Payment';
 import PaymentCreation from './Components/Payments/PaymentCreate';
+import PaymentSuccess from './Components/Payments/PaymentSuccess';
 import React from 'react';
 import UpdateAdmin from './Components/Adminmodel/AdminUpdate/UpdateAdmin';
 import UpdateDeleteScheduleForm from './Components/Schedulemodel/ScheduleUpdate/UpdateDeleteScheduleForm';
@@ -32,7 +33,6 @@ import ViewShedulesupdatedelete from './Components/Schedulemodel/ScheduleView/Vi
 import Viewfilmbyid from './Components/Filmmodel/FilmView/ViewfilmbyId';
 import ViewfimlbyidforGuest from './Components/Filmmodel/FilmView/ViewfimlbyidforGuest';
 import Viewprofile from './Components/Usermodel/UserProfileView/Viewprofile';
-import PaymentSuccess from './Components/Payments/PaymentSuccess';
 
 function App() {
   return (
