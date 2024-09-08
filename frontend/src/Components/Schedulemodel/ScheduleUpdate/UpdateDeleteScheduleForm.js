@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./UpdateDeleteScheduleForm.css";
 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -186,100 +187,39 @@ function UpdateDeleteScheduleForm() {
   };
 
   if (loading) {
-    return <div style={styles.loading}>Loading...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
-    <div>
-      <div style={styles.container}>
-        <h2>Update or Delete Schedule</h2>
-        {error && <div style={styles.error}>Error: {error}</div>}
-        <form style={styles.form}>
-          <label style={styles.label}>
+      <div className="container">
+        <h2 className="ud-h2">Update or Delete Schedule</h2>
+        {error && <div className="error">Error: {error}</div>}
+        <form className="u-form">
+          <label className="u-label">
             Show Time:
-            <input
+            <input className="dtl"
               type="datetime-local"
               name="showTime"
               value={formatDateTimeLocal(schedule.showTime)}
               onChange={handleChange}
-              style={styles.input}
             />
           </label>
-          <div style={styles.buttonContainer}>
-            <button
+          <div className="buttonContainer">
+            <button className="btn btn-update"
               type="button"
               onClick={handleUpdate}
-              style={styles.updateButton}
             >
               Update
             </button>
-            <button
+            <button className="btn btn-delete"
               type="button"
               onClick={handleDelete}
-              style={styles.deleteButton}
             >
               Delete
             </button>
           </div>
         </form>
       </div>
-    </div>
   );
 }
-
-const styles = {
-  container: {
-    maxWidth: "600px",
-    margin: "0 auto",
-    padding: "20px",
-    backgroundColor: "#f9f9f9",
-    borderRadius: "8px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  label: {
-    marginBottom: "10px",
-  },
-  input: {
-    width: "100%",
-    padding: "8px",
-    marginTop: "5px",
-    borderRadius: "4px",
-    border: "1px solid #ccc",
-  },
-  buttonContainer: {
-    display: "flex",
-    justifyContent: "space-between",
-    marginTop: "20px",
-  },
-  updateButton: {
-    padding: "10px 20px",
-    backgroundColor: "#4CAF50",
-    color: "white",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-  },
-  deleteButton: {
-    padding: "10px 20px",
-    backgroundColor: "#f44336",
-    color: "white",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-  },
-  error: {
-    color: "red",
-    marginBottom: "20px",
-  },
-  loading: {
-    textAlign: "center",
-    fontSize: "18px",
-    color: "#555",
-  },
-};
-
 export default UpdateDeleteScheduleForm;

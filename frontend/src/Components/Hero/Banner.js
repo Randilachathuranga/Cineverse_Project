@@ -3,7 +3,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './Banner.css'
 
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'; // Updated import path
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'; 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import React from 'react';

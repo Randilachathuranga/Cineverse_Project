@@ -37,7 +37,7 @@
   width: 100%;
   padding: 10px;
   background-color: #0161fd27;
-  color: #ffffff;
+  color: #1338c1;
   border-radius: 4px;
   border: 1px solid #0161FD;
   font-size: 14px;
@@ -54,7 +54,7 @@
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
-  background-color: #0161FD; /* Button color */
+  background-color: #0161FD; 
   color: #fff;
   font-size: 16px;
   cursor: pointer;

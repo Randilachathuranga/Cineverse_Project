@@ -4,6 +4,7 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
+require('./cron/deleteExpiredSchedules');
 
 const app = express();
 app.use(express.json());
