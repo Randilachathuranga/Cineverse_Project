@@ -27,11 +27,18 @@
   color: #fff;
   border: none;
   padding: 15px;
-  text-align: left;
+  font-size: 20px;
+  text-align: justify;
   cursor: pointer;
   border-radius: 5px;
   margin-top: 20px;
   transition: background-color 0.3s;
+}
+
+
+.tab svg {
+  vertical-align: top;
+  margin-right: 15px;
 }
 
 .tab:hover {

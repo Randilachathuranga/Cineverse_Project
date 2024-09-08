@@ -7,6 +7,11 @@ import UpdateFilms from "../../Filmmodel/FilmUpdate/UpdateFilms";
 import Createschedule from "../../Schedulemodel/ScheduleCreate/Createschedule";
 import ViewShedulesupdatedelete from "../../Schedulemodel/ScheduleView/ViewShedulesupdatedelete";
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
+import EventRoundedIcon from '@mui/icons-material/EventRounded';
+import EditCalendarRoundedIcon from '@mui/icons-material/EditCalendarRounded';
+import LocalMoviesRoundedIcon from '@mui/icons-material/LocalMoviesRounded';
+import AddBoxRoundedIcon from '@mui/icons-material/AddBoxRounded';
 
 export default function AdminHome() {
   const [activeTab, setActiveTab] = useState('AdminProfile');
@@ -32,12 +37,14 @@ export default function AdminHome() {
           className={`tab ${activeTab === 'AdminProfile' ? 'active' : ''}`} 
           onClick={() => handleTabClick('AdminProfile')}
         >
+          <AccountBoxRoundedIcon />
           Admin Profile
         </button>
         <button 
           className={`tab ${activeTab === 'CreateFilm' ? 'active' : ''}`} 
           onClick={() => handleTabClick('CreateFilm')}
         >
+          <AddBoxRoundedIcon/>
           Create a Film
         </button>
         <button 
@@ -45,18 +52,21 @@ export default function AdminHome() {
           'active' : ''}`} 
           onClick={() => handleTabClick('UpdateFilms')}
         >
+          <LocalMoviesRoundedIcon/>
           Show All Films
         </button>
         <button 
           className={`tab ${activeTab === 'CreateSchedule' ? 'active' : ''}`} 
           onClick={() => handleTabClick('CreateSchedule')}
         >
+          <EditCalendarRoundedIcon/>
           Create Schedule
         </button>
         <button 
           className={`tab ${activeTab === 'ViewSchedules' ? 'active' : ''}`} 
           onClick={() => handleTabClick('ViewSchedules')}
         >
+          <EventRoundedIcon/>
           View Schedules
         </button>
       </div>
