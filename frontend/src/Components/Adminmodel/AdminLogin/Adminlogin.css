@@ -1,0 +1,106 @@
+/* Adminlogin.css */
+
+.alogin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Full viewport height */
+  padding: 20px;
+  background-color: #f0f2f5; /* Light background color */
+  box-sizing: border-box; /* Includes padding in height calculation */
+}
+
+.al-h2 {
+  font-size: 2rem;
+  color: #030420; /* Dark color for text */
+  margin-bottom: 20px;
+}
+
+.error {
+  color: red;
+  margin-bottom: 15px;
+}
+
+.al-form {
+  background-color: #ffffff; /* White background for the form */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for form */
+  padding: 20px;
+  width: 100%;
+  max-width: 400px; /* Limit max width for better readability */
+}
+
+.inputs {
+  margin-bottom: 15px;
+}
+
+.input-l {
+  display: block;
+  font-size: 1rem;
+  color: #333; /* Dark gray color for labels */
+  margin-bottom: 5px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #030420; /* Includes padding in width calculation */
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #0161FD; /* Blue background for button */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #014bbf; /* Darker blue on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .al-h2 {
+    font-size: 1.5rem;
+  }
+
+  .input-l {
+    font-size: 0.9rem;
+  }
+
+  .input, .btn-submit {
+    font-size: 1rem;
+  }
+
+  .btn-submit {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .al-h2 {
+    font-size: 1.2rem;
+  }
+
+  .input-l {
+    font-size: 0.8rem;
+  }
+
+  .input, .btn-submit {
+    font-size: 0.9rem;
+  }
+
+  .btn-submit {
+    padding: 10px;
+  }
+}

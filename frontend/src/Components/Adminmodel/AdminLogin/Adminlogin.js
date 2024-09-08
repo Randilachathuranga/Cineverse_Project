@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from '../../../AuthContext'; // Adjust path if needed
 import { useNavigate } from "react-router-dom";
+import "./Adminlogin.css";
 
 function Adminlogin() {
   const { login } = useAuth();
@@ -57,24 +58,24 @@ function Adminlogin() {
   };
 
   return (
-    <div style={styles.container}>
-      <h2>Login</h2>
-      {error && <div style={styles.error}>{error}</div>}
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <div style={styles.formGroup}>
-          <label style={styles.label}>Username:</label>
-          <input
+    <div className="alogin-container">
+      <h2 className="al-h2">Login</h2>
+      {error && <div className="error">{error}</div>}
+      <form onSubmit={handleSubmit} className="al-form">
+        <div className="inputs">
+          <label className="input-l">Username:</label>
+          <input className="input"
             type="text"
             name="username"
             value={credentials.username}
             onChange={handleChange}
             placeholder="Enter your username"
             required
-            style={styles.input}
+            
           />
         </div>
-        <div style={styles.formGroup}>
-          <label style={styles.label}>Password:</label>
+        <div className="inputs">
+          <label className="input-l">Password:</label>
           <input
             type="password"
             name="password"
@@ -82,58 +83,15 @@ function Adminlogin() {
             onChange={handleChange}
             placeholder="Enter your password"
             required
-            style={styles.input}
+            className="input"
           />
         </div>
-        <button type="submit" style={styles.button}>
+        <button type="submit" className="btn-submit">
           Login
         </button>
       </form>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    width: "100%",
-    maxWidth: "400px",
-    margin: "0 auto",
-    padding: "20px",
-    backgroundColor: "#f8f9fa",
-    borderRadius: "8px",
-    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  formGroup: {
-    marginBottom: "15px",
-  },
-  label: {
-    display: "block",
-    marginBottom: "5px",
-    fontWeight: "bold",
-  },
-  input: {
-    width: "100%",
-    padding: "10px",
-    borderRadius: "4px",
-    border: "1px solid #ddd",
-  },
-  button: {
-    padding: "10px",
-    border: "none",
-    borderRadius: "4px",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    cursor: "pointer",
-    fontSize: "16px",
-  },
-  error: {
-    color: "red",
-    marginBottom: "10px",
-  },
-};
 
 export default Adminlogin;

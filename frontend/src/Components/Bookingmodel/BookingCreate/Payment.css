@@ -1,83 +1,92 @@
 /* Payment.css */
+
 .payment-container {
-  padding: 20px;
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full viewport height */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for better contrast */
+  box-sizing: border-box; /* Includes padding in the height calculation */
 }
 
 .payment-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333333;
+  font-size: 2rem;
+  color: #030420; /* Dark color for text */
   margin-bottom: 20px;
 }
 
 .payment-detail {
-  font-size: 18px;
-  color: #555555;
-  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #333; /* Dark gray text color */
+  margin-bottom: 10px;
 }
 
 .payment-seats-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333333;
-  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #030420;
+  margin: 20px 0;
 }
 
 .payment-seats-list {
   list-style-type: none;
   padding: 0;
-  margin: 10px 0;
 }
 
 .payment-seat-item {
-  font-size: 16px;
-  color: #666666;
-  margin: 5px 0;
+  font-size: 1.1rem;
+  color: #555; /* Medium gray text color */
+  margin-bottom: 5px;
 }
 
 .payment-button {
-  background-color: #ff5722;
-  color: white;
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #0161FD; /* Blue color for the button */
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
 .payment-button:hover {
-  background-color: #e64a19;
+  background-color: #014bbf; /* Darker blue on hover */
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-  .payment-container {
-    padding: 15px;
-  }
-
+/* Responsive Styles */
+@media (max-width: 768px) {
   .payment-title {
-    font-size: 20px;
+    font-size: 1.5rem;
   }
 
-  .payment-detail, .payment-seats-title {
-    font-size: 16px;
-  }
-
+  .payment-detail,
+  .payment-seats-title,
   .payment-seat-item {
-    font-size: 14px;
+    font-size: 1rem;
   }
 
   .payment-button {
-    padding: 8px 16px;
-    font-size: 14px;
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-title {
+    font-size: 1.2rem;
+  }
+
+  .payment-detail,
+  .payment-seats-title,
+  .payment-seat-item {
+    font-size: 0.9rem;
+  }
+
+  .payment-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
   }
 }

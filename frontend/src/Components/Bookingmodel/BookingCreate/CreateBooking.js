@@ -55,7 +55,7 @@ const CreateBooking = React.forwardRef((props, ref) => {
     <div style={styles.container}>
       <div style={styles.box}>
         <div style={styles.header}>
-          <div style={styles.title}>Movie Name</div>
+          <div style={styles.title}>Seat Reservation</div>
           <div style={styles.status}>
             <div style={styles.statusItem}>
               <div style={{ ...styles.seat, backgroundColor: "#BDC8E8" }}></div>{" "}
