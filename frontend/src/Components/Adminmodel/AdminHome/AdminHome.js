@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import './AdminHome.css';
-import ViewAdminprofile from "../AdminProfile/ViewAdminprofile";
+
+import React, { useState } from "react";
+
 import Createfilm from "../../Filmmodel/FilmCreate/Createfilm";
-import UpdateFilms from "../../Filmmodel/FilmUpdate/UpdateFilms";
 import Createschedule from "../../Schedulemodel/ScheduleCreate/Createschedule";
+import UpdateFilms from "../../Filmmodel/FilmUpdate/UpdateFilms";
+import ViewAdminprofile from "../AdminProfile/ViewAdminprofile";
 import ViewShedulesupdatedelete from "../../Schedulemodel/ScheduleView/ViewShedulesupdatedelete";
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
@@ -16,7 +17,6 @@ import AddBoxRoundedIcon from '@mui/icons-material/AddBoxRounded';
 export default function AdminHome() {
   const [activeTab, setActiveTab] = useState('AdminProfile');
   const [menuOpen, setMenuOpen] = useState(false); // State to handle hamburger menu
-  const navigate = useNavigate();
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from '../../../AuthContext'; // Import useAuth
 import { useNavigate } from "react-router-dom";
-import './Userlogin.css'; // Import the CSS file
+import './Userlogin.css';
 
 function Userlogin() {
   const { login } = useAuth(); // Get login function from context

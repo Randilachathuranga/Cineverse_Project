@@ -3,7 +3,7 @@ import './NavBar.css';
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { FaUserCircle } from 'react-icons/fa'; // Importing profile icon
+import { FaUserCircle } from 'react-icons/fa';
 import { useAuth } from '../../AuthContext';
 
 function NavBar() {
@@ -59,7 +59,7 @@ function NavBar() {
             {/* Profile Icon with Dropdown */}
             <div className="profile-dropdown-container">
               <button className='profile-icon-button' onClick={toggleProfileDropdown}>
-                <FaUserCircle size={30} /> {/* Profile icon */}
+                <FaUserCircle size={30} />
               </button>
               {isProfileDropdownOpen && (
                 <div className="profile-dropdown">

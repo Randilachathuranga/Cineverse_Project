@@ -32,7 +32,11 @@ function Userregistration() {
         "http://localhost:5001/api/users/register",
         formData
       );
+      
       if (response.data.success) {
+        localStorage.setItem('email', formData.email); // Store email from form data
+        localStorage.setItem('userId', response.data.userId);
+        // Reset form data
         setFormData({
           username: "",
           password: "",
