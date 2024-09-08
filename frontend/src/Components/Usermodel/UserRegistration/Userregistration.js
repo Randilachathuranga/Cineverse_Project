@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './Userregistration.css';  // Import the CSS file
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
+import PersonIcon from '@mui/icons-material/Person';
+import KeyIcon from '@mui/icons-material/Key';
 
 function Userregistration() {
   const [formData, setFormData] = useState({
@@ -63,6 +67,7 @@ function Userregistration() {
         {error && <div className="user-registration-error">{error}</div>}
         <form onSubmit={handleSubmit} className="user-registration-form">
           <div className="user-registration-form-group">
+          <label><PersonIcon/></label>
             <input
               type="text"
               name="username"
@@ -74,6 +79,7 @@ function Userregistration() {
             />
           </div>
           <div className="user-registration-form-group">
+          <label><KeyIcon/></label>
             <input
               type="password"
               name="password"
@@ -85,6 +91,7 @@ function Userregistration() {
             />
           </div>
           <div className="user-registration-form-group">
+          <label><EmailIcon/></label>
             <input
               type="email"
               name="email"
@@ -96,6 +103,7 @@ function Userregistration() {
             />
           </div>
           <div className="user-registration-form-group">
+          <label><PersonIcon/></label>
             <input
               type="text"
               name="name"
@@ -107,6 +115,7 @@ function Userregistration() {
             />
           </div>
           <div className="user-registration-form-group">
+          <label><PhoneIcon/></label>
             <input
               type="text"
               name="phone"
@@ -116,9 +125,11 @@ function Userregistration() {
               className="user-registration-input"
             />
           </div>
+          <div className="user-registration-submit">
           <button type="submit" className="user-registration-submit-button">
             Register
           </button>
+          </div>
         </form>
       </div>
     </div>
