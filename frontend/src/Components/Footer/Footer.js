@@ -16,10 +16,10 @@ function Footer() {
           <a href="/Getfilms">Films</a>
           <a href="/contact">Contact</a>
         </div>
-        <div className="socialMedia">
-            <FacebookIcon />
-            <InstagramIcon />
-            <YouTubeIcon />
+        <div className="social-media">
+          <a href="https://www.facebook.com/"><FacebookIcon /></a>
+          <a href="https://www.instagram.com/"><InstagramIcon /></a>
+          <a href="https://www.youtube.com/"><YouTubeIcon /></a>
         </div>
       </div>
       <div className="footer-bottom">
