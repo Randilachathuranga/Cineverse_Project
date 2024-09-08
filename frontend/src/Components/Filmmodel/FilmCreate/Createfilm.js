@@ -76,7 +76,7 @@ function Createfilm() {
 
   return (
     <div className="create-film-container">
-      <h2 className="create-film-header">Create a New Film</h2>
+      <h1 className="create-film-header">Create a New Film</h1>
       {message && <p className="message">{message}</p>}
       <form className="create-film-form" onSubmit={handleSubmit}>
         <div className="create-film-div">

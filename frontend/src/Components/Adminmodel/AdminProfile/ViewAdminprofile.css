@@ -1,27 +1,29 @@
 .admin-profile-container {
   padding: 20px;
-  background-color: #f8f9fc; /* Light background for contrast */
+  background-color: #030420; /* Light background for contrast */
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  max-width: 800px; /* Max width for large screens */
+  box-shadow:0 0 8px 5px rgba(0, 0, 0, 0.4);
 }
 
 .profile-title {
-  font-size: 24px;
-  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   margin-bottom: 20px;
   text-align: center;
-  color: #333; /* Dark text color */
+  color: #0161FD;
 }
 
 .profile-item {
-  font-size: 16px;
-  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  background-color: #0161fd27;
+  color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #0161FD;
+  box-sizing: border-box;
 }
 
 .profile-item strong {
-  color: #555; /* Slightly lighter text for labels */
+  color: #0161FD;
 }
 
 /* Responsive Styles */
