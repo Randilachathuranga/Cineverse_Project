@@ -100,8 +100,8 @@ const PaymentForm = ({ selectedSeats, totalPrice, userEmail }) => {
             }
           );
 
-          alert('Payment and booking successful!');
-          navigate('/Userhome');
+          // alert('Payment and booking successful!');
+          navigate('/PaymentSuccess');
         } catch (error) {
           console.error('Error during booking:', error);
           alert(`Booking failed. ${error.message}`);
@@ -131,7 +131,7 @@ function PaymentCreation() {
   useEffect(() => {
     if (location.state && location.state.selectedSeats) {
       const { selectedSeats } = location.state;
-      const ticketPrice = 1200; // Adjust as needed
+      const ticketPrice = 1200; 
       const totalPrice = selectedSeats.length * ticketPrice;
       setSelectedSeats(selectedSeats);
       setTotalPrice(totalPrice);

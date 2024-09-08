@@ -32,6 +32,7 @@ import ViewShedulesupdatedelete from './Components/Schedulemodel/ScheduleView/Vi
 import Viewfilmbyid from './Components/Filmmodel/FilmView/ViewfilmbyId';
 import ViewfimlbyidforGuest from './Components/Filmmodel/FilmView/ViewfimlbyidforGuest';
 import Viewprofile from './Components/Usermodel/UserProfileView/Viewprofile';
+import PaymentSuccess from './Components/Payments/PaymentSuccess';
 
 function App() {
   return (
@@ -115,6 +116,7 @@ function Main() {
 
         {/* Payment model */}
         <Route path="/Checkout" element={<PaymentCreation/>} />
+        <Route path= "/PaymentSuccess" element={<PaymentSuccess/>}/>
 
 
       </Routes>
