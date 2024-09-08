@@ -9,11 +9,11 @@
 
 .tabs-container {
   width: 250px;
-  background-color: #f8f9fc;
+  background-color: #030420;
   display: flex;
   flex-direction: column;
   padding: 10px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease;
   position: fixed; /* Keep the menu fixed */
   top: 0;
@@ -23,28 +23,48 @@
 }
 
 .tab {
-  background-color: #ffffff;
+  background-color: #0161FD ;
+  color: #fff;
   border: none;
   padding: 15px;
-  text-align: left;
+  font-size: 20px;
+  text-align: justify;
   cursor: pointer;
-  border-radius: 5px;
-  margin-bottom: 5px;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 20px;
   transition: background-color 0.3s;
 }
 
+
+.tab svg {
+  vertical-align: top;
+  margin-right: 15px;
+}
+
+.tab:hover {
+  background-color: #0162fda1;
+  border: 1px solid #0161FD;
+}
+
 .tab.active {
-  background-color: #e0e0e0;
+  background-color: #6ba3ff8c;
+  border: none;
 }
 
 .content-container {
+  background-color: #0161FD;
   flex: 1;
   padding: 20px;
+  align-items: center;
+  height: 100vh;
   margin-left: 250px; /* Add margin to account for the fixed sidebar */
+  overflow-y: auto; 
 }
 
 .hamburger-menu {
   display: none;
+  color: #fff;
   font-size: 30px;
   background: none;
   border: none;
@@ -68,8 +88,9 @@
     position: fixed;
     top: 0;
     left: 0;
+    padding-top: 30px;
     transform: translateX(-100%);
-    background-color: #f8f9fc;
+    background-color: #030420;
     overflow-x: auto;
     box-shadow: none;
     z-index: 999;
@@ -85,6 +106,7 @@
 
   .content-container {
     margin-left: 0; /* Reset margin when sidebar is not fixed */
+    padding-top: 40px;
   }
 }
 

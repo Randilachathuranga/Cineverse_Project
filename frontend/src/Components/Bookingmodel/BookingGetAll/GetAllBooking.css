@@ -1,27 +1,27 @@
 /* General container styling */
 .booking-container {
   padding: 20px;
-  background-color: #f8f9fc;
-  margin: 0 auto;
-  max-width: 800px;
+  background-color: #030420;
 }
 
 /* Header styling */
 .booking-container h2 {
-  font-size: 24px;
-  color: #333;
+  font-weight: 700;
   margin-bottom: 20px;
   text-align: center;
+  color: #0161FD;
 }
 
 /* List styling */
 .booking-list {
   list-style-type: none;
   padding: 0;
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 .booking-list li {
-  background-color: #ffffff;
+  background-color: #0161fd27;
   margin-bottom: 15px;
   padding: 15px;
   border-radius: 8px;
@@ -37,12 +37,12 @@
 /* Text styling */
 .booking-list p {
   margin: 5px 0;
-  color: #555;
+  color: #fff;
   font-size: 16px;
 }
 
 .booking-list p strong {
-  color: #333;
+  color: #0161FD;
 }
 
 /* Responsive design */

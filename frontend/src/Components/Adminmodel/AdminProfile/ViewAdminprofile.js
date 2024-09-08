@@ -79,24 +79,24 @@ function ViewAdminprofile() {
 
   return (
       <div className="admin-profile-container">
-        <h2 className="profile-title">Admin Profile</h2>
+        <h1 className="profile-title">Admin Profile</h1>
         <p className="profile-item">
-          <strong>Username:</strong> {user.username}
+          <strong>Username : </strong> {user.username}
         </p>
         <p className="profile-item">
-          <strong>Email:</strong> {user.email}
+          <strong>Email : </strong> {user.email}
         </p>
         <p className="profile-item">
-          <strong>Name:</strong> {user.name}
+          <strong>Name : </strong> {user.name}
         </p>
         <p className="profile-item">
-          <strong>Phone:</strong> {user.phone}
+          <strong>Phone : </strong> {user.phone}
         </p>
         <p className="profile-item">
-          <strong>password:</strong> {user.password}
+          <strong>Password : </strong> {user.password}
         </p>
         <p className="profile-item">
-          <strong>Role:</strong> {user.role}
+          <strong>Role : </strong> {user.role}
         </p>
       </div>
   );
