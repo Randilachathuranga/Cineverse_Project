@@ -33,35 +33,25 @@ const PaymentForm = ({ selectedSeats, totalPrice, userEmail }) => {
 
       // Confirm the card payment
       const { error, paymentIntent } = await stripe.confirmCardPayment(data.clientSecret, {
-        payment_method: {
-          card,
-        },
+        payment_method: { card },
       });
 
       if (error) {
         console.error('Payment Error:', error);
         alert(`Payment failed: ${error.message}`);
         return; // Exit if payment fails
-      } 
+      }
 
       if (paymentIntent.status === 'succeeded') {
         // Payment succeeded, proceed with creating seats and booking
         try {
           // Create seats document
           const seatIds = selectedSeats.map(seat => parseInt(seat, 10));
-          const seatResponse = await axios.post(
-            "http://localhost:5001/api/seats/add",
-            {
-              user_id: storedUserId,
-              schedule_id: storedScheduleId,
-              seat_id: seatIds,
-            },
-            {
-              headers: {
-                "x-api-key": storedAuthToken,
-              },
-            }
-          );
+          const seatResponse = await axios.post("http://localhost:5001/api/seats/add", {
+            user_id: storedUserId,
+            schedule_id: storedScheduleId,
+            seat_id: seatIds,
+          }, { headers: { "x-api-key": storedAuthToken }});
 
           if (seatResponse.data.user_id && seatResponse.data._id) {
             localStorage.setItem("seatid_of_seatdoc", seatResponse.data._id);
@@ -69,37 +59,19 @@ const PaymentForm = ({ selectedSeats, totalPrice, userEmail }) => {
 
           const storedSeatIds = localStorage.getItem("seatid_of_seatdoc");
 
-          // Create a booking document
-          const bookingResponse = await axios.post(
-            "http://localhost:5001/api/bookings/add",
-            {
-              user_id: storedUserId,
-              seats: storedSeatIds,
-              schedule_id: storedScheduleId,
-              booking_date: new Date().toISOString(),
-              status: "booked",
-            },
-            {
-              headers: {
-                "x-api-key": storedAuthToken,
-              },
-            }
-          );
+          const bookingResponse = await axios.post("http://localhost:5001/api/bookings/add", {
+            user_id: storedUserId,
+            seats: storedSeatIds,
+            schedule_id: storedScheduleId,
+            booking_date: new Date().toISOString(),
+            status: "booked",
+          }, { headers: { "x-api-key": storedAuthToken }});
 
           // Send QR code to the user's email
-          await axios.post(
-            "http://localhost:5001/api/send-qrcode",
-            {
-              userEmail: userEmail,
-              bookingData: bookingResponse.data,
-            },
-            {
-              headers: {
-                "x-api-key": storedAuthToken,
-              },
-            }
-          );
-
+          await axios.post("http://localhost:5001/api/send-qrcode", {
+            userEmail,
+            bookingData: bookingResponse.data,
+          }, { headers: { "x-api-key": storedAuthToken }});
           // alert('Payment and booking successful!');
           navigate('/PaymentSuccess');
         } catch (error) {
@@ -114,9 +86,9 @@ const PaymentForm = ({ selectedSeats, totalPrice, userEmail }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <CardElement />
-      <button type="submit" disabled={!stripe}>Pay Now</button>
+    <form className="payment-form" onSubmit={handleSubmit}>
+      <CardElement className="card-element" />
+      <button className="pay-button" type="submit" disabled={!stripe}>Pay Now</button>
     </form>
   );
 };
@@ -140,17 +112,18 @@ function PaymentCreation() {
   }, [location.state]);
 
   return (
-    <div>
-      <h1>Checkout Page</h1>
-      <p><strong>Booking Date:</strong> {currentDate}</p>
-      <p><strong>Total Price:</strong> ${totalPrice}</p>
-      <ul>
+    <div className="checkout-container">
+    <div className="checkout-content">
+      <h1 className="checkout-title">Checkout</h1>
+      <p className="booking-date"><strong>Booking Date:</strong> {currentDate}</p>
+      <p className="total-price"><strong>Total Price:</strong> ${totalPrice}</p>
+      <ul className="seat-list">
         {selectedSeats.length > 0 ? (
           selectedSeats.map((seat) => (
-            <li key={seat}>{seat}</li>
+            <li className="seat-item" key={seat}>{seat}</li>
           ))
         ) : (
-          <li>No seats selected</li>
+          <li className="seat-item">No seats selected</li>
         )}
       </ul>
       <Elements stripe={stripePromise}>
@@ -160,6 +133,7 @@ function PaymentCreation() {
           userEmail={userEmail} 
         />
       </Elements>
+    </div>
     </div>
   );
 }
