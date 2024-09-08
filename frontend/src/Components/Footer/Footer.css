@@ -1,8 +1,6 @@
-/* Footer.css */
-
 .footer {
-  background-color: #030420; /* Dark background color for footer */
-  color: #ffffff; /* Light text color */
+  background-color: #030420; 
+  color: #ffffff; 
   padding: 20px;
   display: flex;
   flex-direction: column;
