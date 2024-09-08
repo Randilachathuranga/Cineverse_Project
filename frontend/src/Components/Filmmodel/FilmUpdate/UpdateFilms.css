@@ -1,16 +1,20 @@
-/* Project Color Variables */
-:root {
-  --primary-color: #007BFF; /* Replace with your primary color */
-  --secondary-color: #6C757D; /* Replace with your secondary color */
-  --background-color: #F4F4F4; /* Replace with your background color */
-  --text-color: #333; /* Replace with your text color */
-  --error-color: #DC3545; /* Replace with your error color */
+.view-film-container {
+  padding: 20px;
+  background-color: #030420; /* Dark background for contrast */
+  border-radius: 8px;
+  box-shadow:0 0 8px 5px rgba(0, 0, 0, 0.4);
 }
 
+h1 {
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #0161FD;
+}
 /* Base Styles */
 .film-container {
   padding: 20px;
-  background-color: var(--background-color);
+  background-color: #29c594;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -19,20 +23,20 @@
 .loading {
   text-align: center;
   font-size: 20px;
-  color: var(--primary-color);
+  color: #0161FD;
 }
 
 .error {
   text-align: center;
   font-size: 18px;
-  color: var(--error-color);
+  color: #DC3545;
 }
 
 .film-card {
   width: calc(33.333% - 30px);
   padding: 15px;
   border-radius: 12px;
-  background-color: #fff;
+  background-color: #0161fd27;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
@@ -56,7 +60,7 @@
   padding: 10px;
   border-radius: 4px;
   border: none;
-  background-color: var(--primary-color);
+  background-color: #0161FD;
   color: #fff;
   font-weight: 500;
   cursor: pointer;
@@ -65,7 +69,7 @@
 }
 
 .film-button:hover {
-  background-color: darken(var(--primary-color), 10%);
+  background-color: #0162fda1;
 }
 
 @media (max-width: 768px) {

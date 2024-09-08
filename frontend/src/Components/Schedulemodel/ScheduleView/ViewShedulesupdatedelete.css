@@ -2,25 +2,24 @@
 :root {
   --primary-color: #0d0a6c; /* Replace with your primary color */
   --secondary-color: #6C757D; /* Replace with your secondary color */
-  --background-color: #F9F9F9; /* Replace with your background color */
-  --text-color: #333; /* Replace with your text color */
+  --background-color: #030420; /* Replace with your background color */
+  --text-color: #fff; /* Replace with your text color */
   --error-color: #DC3545; /* Replace with your error color */
 }
 
 /* Base Styles */
 .view-schedules-container {
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 20px;
+  background-color: #030420; /* dark background for contrast */
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: var(--background-color);
+  box-shadow:0 0 8px 5px rgba(0, 0, 0, 0.4);
 }
 
 .view-schedules-heading {
-  text-align: center;
+  font-weight: 700;
   margin-bottom: 20px;
-  color: var(--text-color);
+  text-align: center;
+  color: #0161FD;
 }
 
 .view-schedules-error {
@@ -39,7 +38,7 @@
   width: calc(33.333% - 30px);
   padding: 15px;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #0161fd27;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   overflow: hidden;
@@ -53,7 +52,7 @@
 .view-schedules-film-title {
   margin-bottom: 10px;
   font-weight: bold;
-  color: var(--primary-color);
+  color:  #0161FD;
 }
 
 .view-schedules-image {
@@ -78,19 +77,19 @@
 }
 
 .view-schedules-button {
-  padding: 10px;
-  border-radius: 4px;
+  padding: 10px 15px;
   border: none;
-  background-color: var(--primary-color);
+  border-radius: 4px;
+  background-color: #0161FD; /* Button color */
   color: #fff;
-  font-weight: 500;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
   margin-right: 10px;
-  font-size: 14px;
 }
 
 .view-schedules-button:hover {
-  background-color: #0a0751;
+  background-color: #0162fda1;
 }
 
 @media (max-width: 768px) {

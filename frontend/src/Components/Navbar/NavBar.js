@@ -38,7 +38,7 @@ function NavBar() {
 
   return (
     <nav className='navbar-container'>
-      <a className={`logo-a nav-item ${isActive('/')}`} href='/'>
+      <a className="logo-a " href='/'>
         <img src='Logo/logo.png' alt='logo' />
       </a>
       <div className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>

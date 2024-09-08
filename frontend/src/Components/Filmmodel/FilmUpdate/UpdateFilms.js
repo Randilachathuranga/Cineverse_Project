@@ -57,7 +57,7 @@ function UpdateFilms() {
   if (error) return <div className="error">{error}</div>;
 
   return (
-    <div>
+    <div className="view-film-container">
       <h1>All Films for Updates</h1>
       <div className="film-container">
         {films.map((film) => (

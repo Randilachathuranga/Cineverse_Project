@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './GetAllBooking.css'; // Import the CSS file
 
@@ -46,9 +46,9 @@ function GetBookingBySchedule() {
         <ul className="booking-list">
           {bookings.map((booking) => (
             <li key={booking._id}>
-              <p><strong>Name:</strong> {booking.user_id.name}</p>
-              <p><strong>User Id:</strong> {booking.user_id._id}</p>
-              <p><strong>Email:</strong> {booking.user_id.email}</p>
+              <p><strong>Name : </strong> {booking.user_id.name}</p>
+              <p><strong>User Id : </strong> {booking.user_id._id}</p>
+              <p><strong>Email : </strong> {booking.user_id.email}</p>
             </li>
           ))}
         </ul>

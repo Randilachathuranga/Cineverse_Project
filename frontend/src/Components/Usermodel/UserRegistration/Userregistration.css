@@ -2,6 +2,8 @@
     position: relative;
     min-height: 20vh;
     background: url('./wallpaperflare.com_wallpaper.jpg') center center/cover no-repeat;
+    background-color: rgba(3, 4, 32, 0.719);
+    background-blend-mode: multiply;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,7 +12,7 @@
   
   .user-registration-content {
     position: relative;
-    background: rgba(0, 0, 0, 0.7);
+    background: #030420; /* Dark overlay */
     padding: 2rem;
     border-radius: 1rem;
     max-width: 500px;
@@ -18,16 +20,14 @@
   }
   
   .user-registration-title {
-    font-family: 'Roboto', sans-serif;
     font-size: 2rem;
-    font-weight: bold;
-    color: #1e3a8a;
+    font-weight: 700;
+    color: #0161FD;
     text-align: center;
     margin-bottom: 1.5rem;
   }
   
   .user-registration-error {
-    font-family: 'Roboto', sans-serif;
     color: red;
     margin-bottom: 1.5rem;
     text-align: center;
@@ -39,13 +39,17 @@
   }
   
   .user-registration-form-group {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     margin-bottom: 1rem;
   }
   
-  .user-registration-form-group label {
+  .user-registration-form-group svg {
     display: block;
-    margin-bottom: 0.5rem;
-    color: #d1d5db;
+    font-size: 40px;
+    margin-right: 10px;
+    color: #0161FD;
   }
   
   .user-registration-form-group input {
@@ -58,16 +62,20 @@
   }
   
   .user-registration-form-group input:focus {
-    box-shadow: 0 0 0 2px #2563eb;
+    box-shadow: 0 0 0 2px #0161FD;
+  }
+
+  .user-registration-submit{
+    display: flex;
+    justify-content: center;
   }
   
   .user-registration-submit-button {
-    font-family: 'Roboto', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    background-color: #2563eb;
+    width: 25%;
+    background-color: #0161FD; /* Button color */
     color: #ffffff;
     padding: 0.75rem;
     border-radius: 0.25rem;
@@ -77,7 +85,7 @@
   }
   
   .user-registration-submit-button:hover {
-    background-color: #1e40af;
+    background-color: #0162fda1;
   }
   
   /* Additional styles for form fields */
