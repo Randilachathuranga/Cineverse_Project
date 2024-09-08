@@ -10,6 +10,7 @@ export function EmailProvider({ children }) {
       {children}
     </EmailContext.Provider>
   );
+  
 }
 
 export function useEmail() {
