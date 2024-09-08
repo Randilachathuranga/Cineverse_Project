@@ -48,7 +48,7 @@ const CreateBooking = React.forwardRef((props, ref) => {
   }));
 
   const handleBook = () => {
-    navigate("/Payment", { state: { selectedSeats } });
+    navigate("/Checkout", { state: { selectedSeats } });
   };
 
   return (
