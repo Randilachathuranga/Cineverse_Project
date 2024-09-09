@@ -116,7 +116,7 @@ function PaymentCreation() {
     <div className="checkout-content">
       <h1 className="checkout-title">Checkout</h1>
       <p className="booking-date"><strong>Booking Date:</strong> {currentDate}</p>
-      <p className="total-price"><strong>Total Price:</strong> ${totalPrice}</p>
+      <p className="total-price"><strong>Total Price:</strong> Rs.{totalPrice}</p>
       <ul className="seat-list">
         {selectedSeats.length > 0 ? (
           selectedSeats.map((seat) => (

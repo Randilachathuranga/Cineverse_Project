@@ -77,7 +77,7 @@ function UpdatedeleteForm() {
 
       if (response.status === 200) {
         alert("Film updated successfully!");
-        navigate("/UpdateFilms"); // Navigate back to the list of films
+        navigate("/AdminHome"); // Navigate back to the list of films
       } else {
         throw new Error("Failed to update film");
       }
@@ -198,7 +198,7 @@ function UpdatedeleteForm() {
       if (response.status === 200) {
         console.log("Film deleted successfully!");
         alert("Film and all associated schedules deleted successfully!");
-        navigate("/UpdateFilms"); // Navigate back to the list of films
+        navigate("/AdminHome"); // Navigate back to the list of films
       } else {
         throw new Error("Failed to delete film.");
       }

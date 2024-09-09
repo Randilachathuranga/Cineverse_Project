@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
 import "./UpdateDeleteScheduleForm.css";
+
+import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -77,7 +78,7 @@ function UpdateDeleteScheduleForm() {
 
       if (response.status === 200) {
         alert("Schedule updated successfully!");
-        navigate("/ViewShedulesupdatedelete");
+        navigate("/AdminHome");
       } else {
         throw new Error(`Failed to update schedule: ${response.statusText}`);
       }
@@ -160,7 +161,7 @@ function UpdateDeleteScheduleForm() {
 
         if (scheduleResponse.status === 200) {
           alert("Schedule deleted successfully!");
-          navigate("/ViewShedulesupdatedelete"); // Redirect to another page after deletion
+          navigate("/AdminHome"); // Redirect to another page after deletion
         } else {
           throw new Error(
             `Failed to delete schedule: ${scheduleResponse.statusText}`
@@ -191,35 +192,38 @@ function UpdateDeleteScheduleForm() {
   }
 
   return (
-      <div className="container">
-        <h2 className="ud-h2">Update or Delete Schedule</h2>
-        {error && <div className="error">Error: {error}</div>}
-        <form className="u-form">
-          <label className="u-label">
-            Show Time:
-            <input className="dtl"
-              type="datetime-local"
-              name="showTime"
-              value={formatDateTimeLocal(schedule.showTime)}
-              onChange={handleChange}
-            />
-          </label>
-          <div className="buttonContainer">
-            <button className="btn btn-update"
-              type="button"
-              onClick={handleUpdate}
-            >
-              Update
-            </button>
-            <button className="btn btn-delete"
-              type="button"
-              onClick={handleDelete}
-            >
-              Delete
-            </button>
-          </div>
-        </form>
-      </div>
+    <div className="container">
+      <h2 className="ud-h2">Update or Delete Schedule</h2>
+      {error && <div className="error">Error: {error}</div>}
+      <form className="u-form">
+        <label className="u-label">
+          Show Time:
+          <input
+            className="dtl"
+            type="datetime-local"
+            name="showTime"
+            value={formatDateTimeLocal(schedule.showTime)}
+            onChange={handleChange}
+          />
+        </label>
+        <div className="buttonContainer">
+          <button
+            className="btn btn-update"
+            type="button"
+            onClick={handleUpdate}
+          >
+            Update
+          </button>
+          <button
+            className="btn btn-delete"
+            type="button"
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 export default UpdateDeleteScheduleForm;
