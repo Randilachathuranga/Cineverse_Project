@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './ViewfimlbyidforGuest.css'; 
+import Button from '@mui/material/Button';
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 function ViewfilmbyidforGuest() {
   const [film, setFilm] = useState(null);
@@ -74,26 +77,26 @@ function ViewfilmbyidforGuest() {
   if (!film) return <div>No film data available</div>;
 
   return (
-    <div>
-      <div className="film-container">
-        <h1>{film.title}</h1>
-        <p>
+    <div className="film-v-container">
+      <div className="film-content">
+        <h1 className="film-title">{film.title}</h1>
+        <p className="film-description">
           <strong>Description:</strong> {film.description}
         </p>
-        <p>
+        <p className="film-genre">
           <strong>Genre:</strong> {film.genre.join(", ")}
         </p>
-        <p>
+        <p className="film-duration">
           <strong>Duration:</strong> {film.duration} hours
         </p>
         {film.release_date && (
-          <p>
+          <p className="film-release-date">
             <strong>Release Date:</strong>{" "}
             {new Date(film.release_date).toLocaleDateString()}
           </p>
         )}
         {film.rating && (
-          <p>
+          <p className="film-rating">
             <strong>Rating:</strong> {film.rating}
           </p>
         )}
@@ -105,18 +108,23 @@ function ViewfilmbyidforGuest() {
           />
         )}
 
-        <h2>Schedules</h2>
+        <h2 className="schedules-title">Schedules</h2>
         {schedules.length > 0 ? (
           <ul className="schedule-list">
             {schedules.map((schedule) => (
-              <li key={schedule._id}>
-                Show Time: {new Date(schedule.showTime).toLocaleString()}
-                <button className="schedule-button" onClick={handleBooking}>Book</button>
+              <li key={schedule._id} className="schedule-item">
+                <AccessTimeIcon /> {new Date(schedule.showTime).toLocaleString()}
+
+
+                <Button className="schedule-book-button"
+                  onClick={() => handleBooking(schedule._id)} variant="contained" startIcon={<ConfirmationNumberIcon />}>
+                  Book
+                </Button>
               </li>
             ))}
           </ul>
         ) : (
-          <p>No schedules available for this film.</p>
+          <p className="no-schedules">No schedules available for this film.</p>
         )}
       </div>
     </div>

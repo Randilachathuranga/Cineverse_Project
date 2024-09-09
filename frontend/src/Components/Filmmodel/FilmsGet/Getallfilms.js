@@ -81,7 +81,7 @@ function Getallfilms() {
             }}
           >
             <h3 className="film-title">{film.title}</h3>
-            <p className="film-genre">{film.genre}</p>
+            <p >{film.genre}</p>
             {film.image && (
               <img
                 className="film-poster"

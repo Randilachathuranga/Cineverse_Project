@@ -130,13 +130,13 @@ function Viewfilmbyid() {
           <ul className="schedule-list">
             {schedules.map((schedule) => (
               <li key={schedule._id} className="schedule-item">
-                <AccessTimeIcon/> {new Date(schedule.showTime).toLocaleString()}
-                
-                
-      <Button className="schedule-book-button"
+                <AccessTimeIcon /> {new Date(schedule.showTime).toLocaleString()}
+
+
+                <Button className="schedule-book-button"
                   onClick={() => handleBooking(schedule._id)} variant="contained" startIcon={<ConfirmationNumberIcon />}>
-        Book
-      </Button>
+                  Book
+                </Button>
               </li>
             ))}
           </ul>

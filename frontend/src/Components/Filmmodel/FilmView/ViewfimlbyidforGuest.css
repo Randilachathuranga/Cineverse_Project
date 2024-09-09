@@ -1,54 +1,169 @@
-/* Container styling */
-.film-container {
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 20px auto;
+.film-v-container {
+  position: relative;
+  min-height: 20vh;
+  background: url('/public/img/wallpaperflare.com_wallpaper.jpg') center center/cover no-repeat;
+  background-color: rgba(3, 4, 32, 0.719);
+  background-blend-mode: multiply;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
-/* Film image styling */
+.film-content {
+    position: relative;
+    background: #030420; /* Dark overlay */
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.film-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0161FD;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.film-description,
+.film-genre,
+.film-duration,
+.film-release-date,
+.film-rating {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
 .film-image {
-  max-width: 100%;
-  height: auto;
+  width: 100%; /* Full width of the container */
+  max-width: 400px; /* Maximum width of the image */
+  max-height: 300px; /* Maximum height of the image */
+  object-fit: cover;
   border-radius: 8px;
   margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-position: top;
 }
 
-/* Schedule list styling */
+.schedules-title {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0161FD;
+  text-align: center;
+}
+
 .schedule-list {
   list-style-type: none;
-  padding: 0;
+  padding-left: 0;
 }
 
-.schedule-list li {
-  margin-bottom: 15px;
+.schedule-item {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.schedule-button {
-  background-color: #007bff;
-  color: white;
+.schedule-book-button {
+  padding: 8px 16px;
+  background-color: #11134F;
+  color: #ffffff;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-left: 20px;
 }
 
-.schedule-button:hover {
-  background-color: #0056b3;
+.schedule-book-button:hover {
+  background-color: #0d0a6c;
 }
 
-/* Responsive styling */
+.no-schedules {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #888888;
+  text-align: center;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .film-container {
     padding: 15px;
   }
 
-  .schedule-button {
+  .film-title {
+    font-size: 22px;
+  }
+
+  .film-description,
+  .film-genre,
+  .film-duration,
+  .film-release-date,
+  .film-rating {
+    font-size: 14px;
+  }
+
+  .schedules-title {
+    font-size: 18px;
+  }
+
+  .schedule-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .schedule-book-button {
     width: 100%;
-    padding: 12px;
+    margin-top: 10px;
+  }
+
+  .film-image {
+    max-width: 100%;
+    max-height: 200px; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .film-title {
+    font-size: 20px;
+  }
+
+  .film-description,
+  .film-genre,
+  .film-duration,
+  .film-release-date,
+  .film-rating {
+    font-size: 13px;
+  }
+
+  .schedules-title {
     font-size: 16px;
+  }
+
+  .schedule-item {
+    padding: 12px;
+  }
+
+  .schedule-book-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .film-image {
+    max-width: 100%;
+    max-height: 150px; /* Further adjust height for mobile screens */
   }
 }

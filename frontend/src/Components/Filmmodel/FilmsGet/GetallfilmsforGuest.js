@@ -90,7 +90,7 @@ function GetallfilmsforGuest() {
             onClick={() => handleFilmClick(film._id)} // Set film ID and navigate on click
           >
             <h2 className="film-title">{film.title}</h2>
-            <p className="film-genre">{film.genre}</p>
+            <p>{film.genre}</p>
             {film.image && (
               <img
                 src={`http://localhost:5001/${film.image}`}
